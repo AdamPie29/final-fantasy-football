@@ -1,6 +1,6 @@
 exports.up = function(knex) {
     return knex.schema.createTable('players_statistics', (table) => {
-        table.integer('PlayerID').primary().notNullable();
+        table.integer('PlayerID').notNullable();
         table.integer('SeasonType');
         table.integer('Season');
         table.string('Team');
