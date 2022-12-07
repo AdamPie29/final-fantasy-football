@@ -1,0 +1,29 @@
+@use "../../styles/partials/variables" as *;
+
+.nav {
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline-start: 0;
+        padding: 0.25rem 1rem;
+        color: $primary-white;
+        background-color: $primary-black;
+
+        &-item {
+            font-size: 0.815rem;
+            list-style: none;
+            
+        }
+
+        &-link {
+            text-decoration: none;
+            color: $primary-white;
+            a:visited {
+                text-decoration: none;
+                color: $primary-white;
+            }
+        }
+    }
+}
