@@ -10,9 +10,11 @@ app.use(express.json());
 
 //import routes
 const userRoutes = require("./routes/users");
+const playerRoutes = require("./routes/players");
 
 //routes
 app.use('/user', userRoutes);
+app.use('/player', playerRoutes);
 
 
 
