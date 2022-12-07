@@ -1,0 +1,9 @@
+@use "./variables" as *;
+@use "./mixins" as responsive;
+@use "./typography" as *;
+
+body {
+    font-family: "Roboto";
+    color: $primary-white;
+    font-weight: 500;
+}
