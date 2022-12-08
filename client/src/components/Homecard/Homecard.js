@@ -9,7 +9,7 @@ function Homecard() {
     return (
         <div className="hc">
             <div className="hc-card">
-                <Link to="/" className="hc-card__link">
+                <Link to="/players" className="hc-card__link">
                     <div className="hc-card-con"> 
                         <img src={peyton} className="hc-card__img hc-card__img--players" alt="artwork of The Sherriff: Peyton Manning"/>
                         <p className="hc-card__title-players">PLAYERS</p>

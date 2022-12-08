@@ -8,7 +8,9 @@ exports.getAll = async (req, res) => {
     try {
         const playerData = await knex('players_statistics')
         .join ('players_images', 'players_statistics.PlayerID', '=', 'players_images.PlayerID')
+        .where ('players_statistics.PositionCategory' , "OFF")
         .select ('players_statistics.PlayerID', 'players_statistics.Team', 'players_statistics.Position', 'players_statistics.PassingYards', 'players_statistics.PassingTouchdowns', 'players_statistics.PassingInterceptions', 'players_statistics.RushingYards', 'players_statistics.RushingTouchdowns', 'players_statistics.ReceivingYards', 'players_statistics.ReceivingTouchdowns', 'players_statistics.Fumbles', 'players_statistics.FantasyPointsFanDuel', 'players_images.FirstName', 'players_images.LastName', 'players_images.PhotoUrl')
+        
         res.json(playerData);
     } catch (error) {
         res.status(400).send("Error retrieving player data")
