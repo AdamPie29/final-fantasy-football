@@ -1,0 +1,102 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hc {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    &-card {
+        width: 18rem;
+        height: 10rem;
+        margin: 1rem;
+        position: relative;
+
+        &-con {
+            position:relative;
+        }
+
+        &__overlay {
+            position: absolute;
+            width: 18rem;
+            height: 10rem; 
+            top: 0; 
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2; 
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        &__title {
+
+            &-players {
+                position: absolute;
+                top: 33%;
+                right: 21%;
+                color: $primary-white;
+                font-weight: 600;
+                z-index: 3;
+                font-size: 2.5rem;
+            }
+
+            &-teams {
+                position: absolute;
+                top: 33%;
+                right: 14%;
+                color: $primary-white;
+                font-weight: 600;
+                z-index: 3;
+                font-size: 2.5rem;
+            }
+
+            &-season {
+                position: absolute;
+                top: 37%;
+                right: 22%;
+                color: $primary-white;
+                font-weight: 600;
+                z-index: 3;
+                font-size: 2.5rem;
+            }
+            // position: absolute;
+            // top: 38%;
+            // right: 26%;
+            // color: $primary-white;
+            // font-weight: 600;
+            // z-index: 3;
+            // font-size: 2.5rem;
+        }
+
+        &__img {
+            width: 18rem;
+            height: 10rem;
+            
+
+            &--players {
+                object-fit: cover;
+                object-position: 0% 18%;
+                border-radius: 10px;
+            }
+
+            &--teams {
+                object-fit: cover;
+                object-position: 0% 88%;
+                border-radius: 10px;
+            }
+
+            &--season {
+                object-fit: cover;
+                object-position: 100% 0%;
+                border-radius: 10px;
+            }
+        }
+
+    }
+
+}
