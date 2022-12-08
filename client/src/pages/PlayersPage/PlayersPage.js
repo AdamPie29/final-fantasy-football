@@ -2,6 +2,7 @@ import "./PlayersPage.scss";
 import { useState, useEffect} from 'react';
 import axios from 'axios';
 import PlayerTable from "../../components/PlayerTable/PlayerTable";
+import PlayerTableHeading from "../../components/PlayerTableHeading/PlayerTableHeading";
 
 function PlayersPage () {
 
@@ -33,7 +34,9 @@ function PlayersPage () {
             <h1 className="players__title">PLAYERS</h1>
             <PlayerTable 
             playerData={playerData}
-            setPlayerData={setPlayerData}/>
+            setPlayerData={setPlayerData}
+            nameOrdered={nameOrdered}
+            setNameOrdered={setNameOrdered}/>
             
         </div>
     )
