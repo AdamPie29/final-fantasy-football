@@ -5,7 +5,7 @@ import logo from "../../assets/logo/logo-no-background-1.svg";
 function Header () {
     return (
         <div className="header">
-            <img className="header__img" src={logo} alt="final fantasy football logo" />
+            <Link to="/"><img className="header__img" src={logo} alt="final fantasy football logo" /></Link>
         </div>
     )
 }

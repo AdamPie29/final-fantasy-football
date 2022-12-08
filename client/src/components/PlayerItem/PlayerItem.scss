@@ -1,0 +1,64 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.player-row {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0rem;
+    border-bottom: 0.5px solid $primary-white;
+
+    // &:hover {
+    //     background-color: rgba(73, 74, 77, 0.522);
+    //   }
+
+    &__player {
+        display: flex;
+        flex-direction: row;
+        min-width: 10rem;
+
+        &__img {
+            width: 1.75rem;
+            height: 1.75rem;
+            object-fit: cover;
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            
+
+
+            &__name {
+                flex-wrap: nowrap;
+                font-size: 0.7rem;
+                white-space: nowrap;
+                margin-right: 0.5rem;
+                padding-top: 0.45rem;
+                padding-left: 0.25rem;
+            }
+
+            &__team {
+                white-space: nowrap;
+                font-size: 0.6rem;
+                padding-top: 0.5rem;
+            }
+
+            &__position {
+                font-size: 0.6rem;
+                padding-top: 0.5rem;    
+            }
+        }
+    }
+
+
+    &__cat {
+        padding-left: 2rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        font-size: 0.6rem;
+        width: 2rem;
+        justify-content: center;
+
+    }
+}

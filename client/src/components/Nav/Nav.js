@@ -7,7 +7,7 @@ function Nav () {
         <div className="nav">
             <ul className='nav__list'>
                 <Link to="/" className="nav__list-link"><li className="nav__list-item">Log In</li></Link>
-                <Link to="/" className="nav__list-link"><li className="nav__list-item">Players</li></Link>
+                <Link to="/players" className="nav__list-link"><li className="nav__list-item">Players</li></Link>
                 <Link to="/" className="nav__list-link"><li className="nav__list-item">My Teams</li></Link>
                 <Link to="/" className="nav__list-link"><li className="nav__list-item">Season</li></Link>
                 <Link to="/" className="nav__list-link"><li className="nav__list-item">About</li></Link>
