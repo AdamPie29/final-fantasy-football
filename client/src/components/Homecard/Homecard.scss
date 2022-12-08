@@ -4,9 +4,12 @@
 .hc {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     @include tablet {
         flex-direction: row;
+        flex-wrap: wrap;
+        
     }
 
     &-card {
