@@ -36,7 +36,26 @@ function PlayersPage () {
             playerData={playerData}
             setPlayerData={setPlayerData}
             nameOrdered={nameOrdered}
-            setNameOrdered={setNameOrdered}/>
+            setNameOrdered={setNameOrdered}
+            fanpointsOrdered={fanpointsOrdered}
+            setFanpointsOrdered={setFanpointsOrdered}
+            passyardsOrdered={passyardsOrdered}
+            setPassyardsOrdered={setPassyardsOrdered}
+            passtdsOrdered={passtdsOrdered}
+            setPasstdsOrdered={setPasstdsOrdered}
+            intOrdered={intOrdered}
+            setIntOrdered={setIntOrdered}
+            rushyardsOrdered={rushyardsOrdered}
+            setRushyardsOrdered={setRushyardsOrdered}
+            rushtdsOrdered={rushtdsOrdered}
+            setRushtdsOrdered={setRushtdsOrdered}
+            receiveyardsOrdered={receiveyardsOrdered}
+            setReceiveyardsOrdered={setReceiveyardsOrdered}
+            receivetdsOrdered={receivetdsOrdered}
+            setReceivetdsOrdered={setReceivetdsOrdered}
+            fumblesOrdered={fumblesOrdered}
+            setFumblesOrdered={setFumblesOrdered}
+            />
             
         </div>
     )
