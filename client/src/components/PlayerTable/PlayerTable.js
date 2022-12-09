@@ -77,6 +77,7 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
                      const {FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team} = player
                      return (
                         <PlayerItem 
+                        player={player}
                         FantasyPointsFanDuel={FantasyPointsFanDuel}
                         FirstName={FirstName}
                         Fumbles={Fumbles}

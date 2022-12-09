@@ -1,12 +1,17 @@
 import "./PlayerItem.scss";
 import add from "../../assets/icons/add.svg";
+import axios from 'axios';
 
-function PlayerItem ({ FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team }) {
+function PlayerItem ({ FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team, player }) {
 
+    const getPlayer = () => {
+        console.log(player)
+
+    }
     return (
         <div className="player-row">
             <div className="player-row__player">
-                <button className="player-row__player__add"><img src={add} className="player-row__player__add" alt="plus representing add"/></button>
+                <button onClick={() => getPlayer()} className="player-row__player__add"><img src={add} className="player-row__player__add" alt="plus representing add"/></button>
                 <img className="player-row__player__img" src={PhotoUrl} alt="Player " />
                 <div className="player-row__player__details">
                     <p className="player-row__player__details__name">{FirstName + ' ' + LastName}</p>
