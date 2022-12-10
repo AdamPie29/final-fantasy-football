@@ -1,7 +1,6 @@
 exports.up = function(knex) {
     return knex.schema.createTable('team_joiner', (table) => {
-        table.integer('Team_id');
-        table.integer('Player_id');
+        table.integer('PlayerID');
         table.string('FirstName');
         table.string('LastName');
         table.string('PhotoUrl');
@@ -16,6 +15,8 @@ exports.up = function(knex) {
         table.integer('ReceivingYards');
         table.integer('ReceivingTouchdowns');
         table.integer('Fumbles');
+        table.string('TeamId');
+        table.string('TeamName');
     });
 };
 

@@ -7,7 +7,6 @@ const {uuid} = require('uuidv4');
 exports.addTeam = async (req, res) => {
     try {
         const newTeam = req.body;
-        newTeam.id = uuid();
         console.log(newTeam)
         await knex('teams').insert(newTeam);
         res.status(201).json(newTeam);
@@ -46,3 +45,12 @@ exports.getAllTeams = async (req, res) => {
     }
 };
 
+exports.createNewTeam = async (req, res) => {
+    try {
+        const newTeam = req.body;
+        await knex('team_joiner').insert(newTeam)
+        res.status(201).json(newTeam)
+    } catch (error) {
+        res.status(400).send("Error creating new team")
+    }
+};

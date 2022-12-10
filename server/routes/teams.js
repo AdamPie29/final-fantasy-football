@@ -13,4 +13,8 @@ router
     .route('/allteams')
     .get(teamsController.getAllTeams);
 
+router
+    .route('/newteam')
+    .post(teamsController.createNewTeam);
+
 module.exports = router;

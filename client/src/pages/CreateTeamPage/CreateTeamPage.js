@@ -2,14 +2,13 @@ import "./CreateTeamPage.scss";
 import axios from 'axios';
 import PlayerTable from "../../components/PlayerTable/PlayerTable";
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
 import AddPlayerCard from "../../components/AddPlayerCard/AddPlayerCard";
+const {v4:uuidv4} = require('uuid');
+
 
 function CreateTeamPage () {
 
-    const {teamid} =useParams();
-    const navigate = useNavigate();
+    
 
     // piece of state for all players
     const [allPlayers, setAllPlayers] = useState([])
@@ -32,64 +31,52 @@ function CreateTeamPage () {
     // piece of state to build team
     const [team, setTeam] = useState([])
 
+    // to add player to team, limits team size to 6 total
     const addPlayer = (player) => {
         if (team.length > 5) {
             return
         }
         setTeam([...team, player])
     }
-    console.log(team)
 
+    // to populate players on mount
     useEffect(()=> {
         populateData()
     }, []);
 
-    // to handle submission of team name creator
+    // to handle submission of team creator
     const handleSubmit = (event) => {
-    alert(`Your team: ${event.target.team.value} was created`)
-    event.preventDefault()
-
-    // build a new teams object
-    const newTeam = {
-        team_name: event.target.team.value,
-    }
-
-    // add team to teams table
-    axios.post("http://localhost:8080/teams/teams", newTeam)
-    .then(_res => {
-        event.target.reset()
+        event.preventDefault()      
+        alert(`Your team: ${event.target.teaminput.value} was created`)
         
-    })
-    navigate(`/createteam/` + teamid)
-}
+
+        // build a new teams object
+        const newTeam = {
+            TeamName: event.target.teaminput.value,
+            id: uuidv4(),
+            team: [...team]
+        }
+
+        // Add team ID and name to player objects for populating team joiner table
+        for(let i=0; i<newTeam.team.length; i++) {
+            newTeam.team[i].TeamId = newTeam.id
+            newTeam.team[i].TeamName = newTeam.TeamName       
+        }
+        axios.post('http://localhost:8080/teams/newteam', newTeam.team)
+    }
 
     return (
         <div className="createteam">
-            <div className="container">
-                <input type="checkbox" id="view-0" />
-	            <label for="view-0">CREATE NEW TEAM</label>
-                <form onSubmit={handleSubmit} className="content" id="content-0">
-                    <label>Team Name:
-                        {/* <input type="text" name="name" /> */}
-                    </label>
-                    <textarea 
-                    id="teaminput" 
-                    name="team" 
-                    placeholder="Your team name" type="submit"
-                    className="content__form" />
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
             <div className="createteam__teamform">
-                <form className="createteam__teamform__form">
-                    <label>Team Name:</label>
-                    <textarea
+                <form onSubmit={handleSubmit} className="createteam__teamform__form">
+                    <label className="createteam__teamform__label">Team Name:</label>
+                    <input
                     id="teaminput"
-                    name="team"
+                    name="teaminput"
                     placeholder="Your team name"
-                    type="submit"
+                    type="text"
                     className="createteam__teamform__form__textarea" />
-                    <button type="submit">Save Team</button>
+                    <button type="submit" className="createteam__teamform__button">Save Team</button>
                 </form>
 
             </div>
