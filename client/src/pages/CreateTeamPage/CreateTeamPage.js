@@ -48,6 +48,7 @@ function CreateTeamPage () {
     const handleSubmit = (event) => {
         event.preventDefault()      
         alert(`Your team: ${event.target.teaminput.value} was created`)
+        event.target.reset()
         
 
         // build a new teams object
@@ -62,32 +63,43 @@ function CreateTeamPage () {
             newTeam.team[i].TeamId = newTeam.id
             newTeam.team[i].TeamName = newTeam.TeamName       
         }
+        // posts built team to database
         axios.post('http://localhost:8080/teams/newteam', newTeam.team)
+    }
+
+    // Clears team while building
+    const clearTeam = () => {
+        setTeam([])
     }
 
     return (
         <div className="createteam">
             <div className="createteam__teamform">
+                <h1 className="createteam__teamform__title">CREATE TEAM</h1>
                 <form onSubmit={handleSubmit} className="createteam__teamform__form">
-                    <label className="createteam__teamform__label">Team Name:</label>
                     <input
+                    className="createteam__teamform__form__textarea"
                     id="teaminput"
                     name="teaminput"
                     placeholder="Your team name"
                     type="text"
-                    className="createteam__teamform__form__textarea" />
-                    <button type="submit" className="createteam__teamform__button">Save Team</button>
+                     />
+                    <button type="submit" className="createteam__teamform__form__button">Save Team</button>
                 </form>
 
             </div>
 
             <div className="team">
-                {team?.map((player)=> {
+                {team.map((player)=> {
                     return (
                         <AddPlayerCard
                         props={player}/>
                     )
                 })}
+            </div>
+
+            <div className="createteam__clear">
+                <button className="createteam__clear__button" onClick={() => clearTeam()}>Delete</button>
             </div>
 
             <div className="playertable-con">
@@ -120,7 +132,8 @@ function CreateTeamPage () {
         </div>
 
     )
-
+    
+    // populates players database
     async function populateData() {
         try {
             const response = await axios.get('http://localhost:8080/player/')
