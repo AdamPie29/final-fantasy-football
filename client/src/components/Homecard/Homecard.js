@@ -18,7 +18,7 @@ function Homecard() {
                 </Link>
             </div>
             <div className="hc-card">
-                <Link to="/" className="hc-card__link">
+                <Link to="/teams" className="hc-card__link">
                     <div className="hc-card-con">
                         <img src={team} className="hc-card__img hc-card__img--teams" alt="The Indianapolis Colts in a huddle during Super Bowl XLI"/>
                         <p className="hc-card__title-teams">MY TEAMS</p>

@@ -4,7 +4,7 @@ import PlayerItem from "../PlayerItem/PlayerItem";
 import PlayerTableHeading from "../PlayerTableHeading/PlayerTableHeading";
 import axios from 'axios';
 
-function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, fanpointsOrdered, setFanpointsOrdered, passyardsOrdered, setPassyardsOrdered, passtdsOrdered, setPasstdsOrdered, intOrdered, setIntOrdered, rushyardsOrdered, setRushyardsOrdered, rushtdsOrdered, setRushtdsOrdered, receiveyardsOrdered, setReceiveyardsOrdered, receivetdsOrdered, setReceivetdsOrdered, fumblesOrdered, setFumblesOrdered }) {
+function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, fanpointsOrdered, setFanpointsOrdered, passyardsOrdered, setPassyardsOrdered, passtdsOrdered, setPasstdsOrdered, intOrdered, setIntOrdered, rushyardsOrdered, setRushyardsOrdered, rushtdsOrdered, setRushtdsOrdered, receiveyardsOrdered, setReceiveyardsOrdered, receivetdsOrdered, setReceivetdsOrdered, fumblesOrdered, setFumblesOrdered, addPlayer }) {
     
     useEffect(() => {
         sortByName()
@@ -77,6 +77,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
                      const {FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team} = player
                      return (
                         <PlayerItem 
+                        addPlayer={addPlayer}
+                        player={player}
                         FantasyPointsFanDuel={FantasyPointsFanDuel}
                         FirstName={FirstName}
                         Fumbles={Fumbles}
