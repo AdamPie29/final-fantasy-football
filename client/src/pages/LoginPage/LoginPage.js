@@ -1,28 +1,70 @@
 import "./LoginPage.scss";
 import { Link } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
+import * as yup from "yup";
 
 function LoginPage() {
 
+    // set password rules to minimum of 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit
+    const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+    
+    // prepare schema to initiate validation requirements
+    const basicSchema = yup.object().shape({
+        email: yup
+            .string()
+            .email("Please enter a valid email")
+            .required("Required"),
+        name: yup
+            .string()
+            .required("Please enter your name"),
+        password: yup
+            .string()
+            .min(5)
+            .matches(passwordRules, {message: "Please enter a valid password"})
+            .required("Required"),
+    })
+
+    const onSubmit = async (values, actions) => {
+        console.log("submitted");
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        actions.resetForm();
+        
+    }
+
+    const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validationSchema: basicSchema,
+        onSubmit,
+    });
+
+    // console.log(errors);
+
+    console.log(values);
     return (
         <div className="login-page">
             <div className="login-page__form">
                 <p className="login-page__form__title">Login, Coach!</p>
                 <div className="formCenter">
-                    <form onSubmit="" className="formFields">
+                    <form onSubmit={handleSubmit} className="formFields">
                         <div className="formField">
                             <label className="formFieldLabel" htmlFor="email">
                             E-Mail Address
                             </label>
                             <input
                             type="email"
-                            id="email"
-                            className="formFieldInput"
-                            placeholder="Enter your email"
                             name="email"
-                            value=""
-                            onChange=""
+                            id="email"
+                            // className="formFieldInput"
+                            placeholder="Enter your email"
+                            value={values.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={errors.email && touched.email ? "input-error" : "formFieldInput"}
                             />
+                            {errors.email && touched.email && <p className="error">{errors.email}</p>}
                         </div>
                         <div className="formField">
                             <label className="formFieldLabel" htmlFor="password">
@@ -30,17 +72,19 @@ function LoginPage() {
                             </label>
                             <input
                             type="password"
-                            id="password"
-                            className="formFieldInput"
-                            placeholder="Enter your password"
                             name="password"
-                            value=""
-                            onChange=""
+                            id="password"
+                            placeholder="Enter your password"
+                            value={values.password}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={errors.password && touched.password ? "input-error" : "formFieldInput"}
                             />
+                            {errors.password && touched.password && <p className="error">{errors.password}</p>}
                         </div>
                         <div className="formField-button">
-                            <button className="formFieldButton">Log in</button>{" "}
-                            <Link to="/signup" className="formFieldLink">
+                            <button disabled={isSubmitting} type="submit" className="formFieldButton">Log in</button>
+                            <Link to="/login" className="formFieldLink">
                             I'm not a Coach yet
                             </Link>
                         </div>

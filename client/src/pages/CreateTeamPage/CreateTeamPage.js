@@ -50,7 +50,6 @@ function CreateTeamPage () {
     const handleSubmit = (event) => {
         event.preventDefault()      
         alert(`Your team: ${event.target.teaminput.value} was created`)
-        event.target.reset()
         
         // build a new teams object
         const newTeam = {
@@ -66,7 +65,7 @@ function CreateTeamPage () {
         }
         // posts built team to database
         axios.post('http://localhost:8080/teams/newteam', newTeam.team)
-        setTeam([])
+        event.target.reset()
     }
 
     // Clears team while building
