@@ -3,6 +3,8 @@ import axios from 'axios';
 import PlayerTable from "../../components/PlayerTable/PlayerTable";
 import { useState, useEffect } from "react";
 import AddPlayerCard from "../../components/AddPlayerCard/AddPlayerCard";
+import save from "../../assets/icons/save.svg";
+import refresh from "../../assets/icons/refresh.svg";
 const {v4:uuidv4} = require('uuid');
 
 
@@ -50,7 +52,6 @@ function CreateTeamPage () {
         alert(`Your team: ${event.target.teaminput.value} was created`)
         event.target.reset()
         
-
         // build a new teams object
         const newTeam = {
             TeamName: event.target.teaminput.value,
@@ -65,6 +66,7 @@ function CreateTeamPage () {
         }
         // posts built team to database
         axios.post('http://localhost:8080/teams/newteam', newTeam.team)
+        setTeam([])
     }
 
     // Clears team while building
@@ -84,22 +86,23 @@ function CreateTeamPage () {
                     placeholder="Your team name"
                     type="text"
                      />
-                    <button type="submit" className="createteam__teamform__form__button">Save Team</button>
+                    <button type="submit" className="createteam__teamform__form__button"><img src={save} className="createteam__teamform__form__button--icon" alt="floppy disk save"/>Save Team</button>
                 </form>
-
             </div>
 
-            <div className="team">
+            <div className="createteam__team">
+                <p className="createteam__team__title">YOUR ROSTER:</p>
                 {team.map((player)=> {
                     return (
                         <AddPlayerCard
-                        props={player}/>
+                        props={player}
+                        />
                     )
                 })}
             </div>
 
             <div className="createteam__clear">
-                <button className="createteam__clear__button" onClick={() => clearTeam()}>Delete</button>
+                <button className="createteam__clear__button" onClick={() => clearTeam()}><img src={refresh} alt="clockwise arrow" className="createteam__clear__button__icon"/>Start Fresh</button>
             </div>
 
             <div className="playertable-con">
@@ -126,7 +129,8 @@ function CreateTeamPage () {
                 receivetdsOrdered={receivetdsOrdered}
                 setReceivetdsOrdered={setReceivetdsOrdered}
                 fumblesOrdered={fumblesOrdered}
-                setFumblesOrdered={setFumblesOrdered}/>
+                setFumblesOrdered={setFumblesOrdered}
+                />
             </div>
             
         </div>

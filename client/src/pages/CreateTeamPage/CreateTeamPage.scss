@@ -32,10 +32,44 @@
                 border: 1px solid $primary-white;
                 width: 60%;
                 padding: 0.25rem;
-              
+                border-radius: 15px;
+
+                &--icon {
+                    width: 1rem;
+                    vertical-align: middle;
+                    margin-right: 0.5rem;
+                    padding-bottom: 0.2rem;
+                }
             }
         }
 
+    }
+
+    &__team {
+        padding: 0rem 1rem;
+
+        &__title {
+            font-weight: 500;
+        }
+    }
+
+    &__clear {
+        padding: 0rem 1rem;
+
+        &__button {
+            margin-top: 1rem;
+            border: 1px solid $primary-white;
+            width: 40%;
+            padding: 0.25rem;
+            border-radius: 15px;
+
+            &__icon {
+                width: 1rem;
+                vertical-align: middle;
+                margin-right: 0.5rem;
+                padding-bottom: 0.2rem;
+            }
+        }
     }
 
 }
