@@ -14,9 +14,6 @@ function LoginPage() {
             .string()
             .email("Please enter a valid email")
             .required("Required"),
-        name: yup
-            .string()
-            .required("Please enter your name"),
         password: yup
             .string()
             .min(5)
@@ -28,7 +25,6 @@ function LoginPage() {
         console.log("submitted");
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
-        
     }
 
     const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
@@ -57,7 +53,6 @@ function LoginPage() {
                             type="email"
                             name="email"
                             id="email"
-                            // className="formFieldInput"
                             placeholder="Enter your email"
                             value={values.email}
                             onChange={handleChange}
@@ -84,9 +79,10 @@ function LoginPage() {
                         </div>
                         <div className="formField-button">
                             <button disabled={isSubmitting} type="submit" className="formFieldButton">Log in</button>
-                            <Link to="/login" className="formFieldLink">
+                            <Link to="/signup" className="formFieldLink">
                             I'm not a Coach yet
                             </Link>
+                            {isSubmitting && <p className="signedup">Logged in succesfully!</p>}
                         </div>
                     </form>
                 </div>

@@ -78,7 +78,6 @@ function SignUpPage () {
                             type="email"
                             name="email"
                             id="email"
-                            // className="formFieldInput"
                             placeholder="Enter your email"
                             value={values.email}
                             onChange={handleChange}
@@ -124,6 +123,7 @@ function SignUpPage () {
                             <Link to="/login" className="formFieldLink">
                             I'm already a Coach
                             </Link>
+                            {isSubmitting && <p className="signedup">Signed up succesfully!</p>}
                         </div>
                     </form>
                 </div>
