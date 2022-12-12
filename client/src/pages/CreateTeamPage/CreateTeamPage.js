@@ -10,8 +10,6 @@ const {v4:uuidv4} = require('uuid');
 
 function CreateTeamPage () {
 
-    
-
     // piece of state for all players
     const [allPlayers, setAllPlayers] = useState([])
 
@@ -72,6 +70,8 @@ function CreateTeamPage () {
     const clearTeam = () => {
         setTeam([])
     }
+
+    
 
     return (
         <div className="createteam">
