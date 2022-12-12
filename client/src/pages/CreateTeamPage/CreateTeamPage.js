@@ -10,8 +10,6 @@ const {v4:uuidv4} = require('uuid');
 
 function CreateTeamPage () {
 
-    
-
     // piece of state for all players
     const [allPlayers, setAllPlayers] = useState([])
 
@@ -50,7 +48,6 @@ function CreateTeamPage () {
     const handleSubmit = (event) => {
         event.preventDefault()      
         alert(`Your team: ${event.target.teaminput.value} was created`)
-        event.target.reset()
         
         // build a new teams object
         const newTeam = {
@@ -62,11 +59,12 @@ function CreateTeamPage () {
         // Add team ID and name to player objects for populating team joiner table
         for(let i=0; i<newTeam.team.length; i++) {
             newTeam.team[i].TeamId = newTeam.id
-            newTeam.team[i].TeamName = newTeam.TeamName       
+            newTeam.team[i].TeamName = newTeam.TeamName     
+            newTeam.team[i].user_id = sessionStorage.getItem("user_id")  
         }
         // posts built team to database
         axios.post('http://localhost:8080/teams/newteam', newTeam.team)
-        setTeam([])
+        event.target.reset()
     }
 
     // Clears team while building

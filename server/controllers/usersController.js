@@ -29,9 +29,9 @@ exports.register = async(req, res) => {
     // Insert it into our database
     try {
         await knex('users').insert(newUser);
-        resp.status(201).send("Congratulations on signing up, Coach!")
+        res.status(201).send("Congratulations on signing up, Coach!")
     } catch (error) {
-        resp.status(400).send("Failure to sign up.")
+        res.status(400).send("Failure to sign up.")
     }
 };
 

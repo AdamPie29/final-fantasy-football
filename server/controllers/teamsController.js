@@ -35,16 +35,6 @@ exports.getOneTeam = async (req, res) => {
     }
 };
 
-exports.getAllTeams = async (req, res) => {
-    try {
-        const teamData = await knex('teams')
-        .select('*')
-        res.json(teamData);
-    } catch (error) {
-        res.status(400).send("Error retreiving all teams data")
-    }
-};
-
 exports.createNewTeam = async (req, res) => {
     try {
         const newTeam = req.body;
@@ -52,5 +42,17 @@ exports.createNewTeam = async (req, res) => {
         res.status(201).json(newTeam)
     } catch (error) {
         res.status(400).send("Error creating new team")
+    }
+};
+
+exports.getAllTeams = async (req, res) => {
+    console.log(req.params)
+    try {
+        const teamData = await knex('team_joiner')
+        .where('user_id', req.params.user_id)
+        .select('*')
+        res.json(teamData);
+    } catch (error) {
+        res.status(400).send("Error retreiving all teams made by user")
     }
 };
