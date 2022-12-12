@@ -1,9 +1,14 @@
 import "./LoginPage.scss";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as yup from "yup";
+import { useState } from 'react';
+import axios from "axios";
 
 function LoginPage() {
+
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
 
     // set password rules to minimum of 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit
     const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
@@ -24,6 +29,24 @@ function LoginPage() {
     const onSubmit = async (values, actions) => {
         console.log("submitted");
         await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        // creates user object
+        const user = {
+            user_email: values.email,
+            user_password: values.password
+        }
+
+        // post to login route
+        axios.post("http://localhost:8080/user/login", user)
+            .then ((response)=> {
+                sessionStorage.setItem("token", response.data.token);
+                navigate("/")
+            })
+            .catch((err) => {
+                console.log(err);
+                setError(true)
+            })
+
         actions.resetForm();
     }
 
@@ -83,6 +106,7 @@ function LoginPage() {
                             I'm not a Coach yet
                             </Link>
                             {isSubmitting && <p className="signedup">Logged in succesfully!</p>}
+                            {error && <div className="login__message">Failed to login</div>}
                         </div>
                     </form>
                 </div>
