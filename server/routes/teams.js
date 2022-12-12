@@ -10,7 +10,7 @@ router
     .get(teamsController.getOneTeam);
 
 router
-    .route('/allteams')
+    .route('/:user_id')
     .get(teamsController.getAllTeams);
 
 router

@@ -46,7 +46,7 @@ function LoginPage() {
                 console.log(err);
                 setError(true)
             })
-
+            
         actions.resetForm();
     }
 

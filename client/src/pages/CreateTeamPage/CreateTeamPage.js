@@ -59,7 +59,8 @@ function CreateTeamPage () {
         // Add team ID and name to player objects for populating team joiner table
         for(let i=0; i<newTeam.team.length; i++) {
             newTeam.team[i].TeamId = newTeam.id
-            newTeam.team[i].TeamName = newTeam.TeamName       
+            newTeam.team[i].TeamName = newTeam.TeamName     
+            newTeam.team[i].user_id = sessionStorage.getItem("user_id")  
         }
         // posts built team to database
         axios.post('http://localhost:8080/teams/newteam', newTeam.team)
@@ -70,8 +71,6 @@ function CreateTeamPage () {
     const clearTeam = () => {
         setTeam([])
     }
-
-    
 
     return (
         <div className="createteam">

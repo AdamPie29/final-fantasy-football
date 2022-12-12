@@ -17,6 +17,7 @@ exports.up = function(knex) {
         table.integer('Fumbles');
         table.string('TeamId');
         table.string('TeamName');
+        table.string('user_id');
     });
 };
 
