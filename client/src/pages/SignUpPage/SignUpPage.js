@@ -2,6 +2,7 @@ import "./SignUpPage.scss";
 import { Link } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as yup from "yup";
+import axios from "axios";
 
 
 function SignUpPage () {
@@ -30,6 +31,17 @@ function SignUpPage () {
     const onSubmit = async (values, actions) => {
         console.log("submitted");
         await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        //creates new user object
+        const newUser = {
+            user_name: values.name,
+            user_email: values.email,
+            user_password: values.password
+        }
+
+        // post new user to users table
+        axios.post("http://localhost:8080/user/signup", newUser)
+        console.log(newUser);
         actions.resetForm();
     }
 
