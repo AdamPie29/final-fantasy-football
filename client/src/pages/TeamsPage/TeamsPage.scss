@@ -12,8 +12,18 @@
         flex-direction: column;
         justify-content: space-between;
 
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
         &__new-team-button {
-            border-bottom: 1px solid $primary-white;
+            border: 1px solid $primary-white;
+            width: 12rem;
+            padding: 0.5rem;
+            border-radius: 15px;
         }
 
         &__img {

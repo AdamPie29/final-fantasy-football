@@ -1,12 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .team-card {
     margin: 1rem;
-    border: 1px solid blue;
+    background-color: #121216d7;
+    z-index: 2; 
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
 
-    &__player-info {
-        display: flex;
-
-        &__img {
-            width: 1.5rem;
-        }
+    &__team-name {
+        text-align: center;
+        padding-bottom: 0.5rem;
     }
 }
