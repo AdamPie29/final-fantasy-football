@@ -1,16 +1,16 @@
 import './Nav.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Nav () {
 
     return (
         <div className="nav">
             <ul className='nav__list'>
-                <Link to="/signup" className="nav__list-link"><li className="nav__list-item">Log In</li></Link>
-                <Link to="/players" className="nav__list-link"><li className="nav__list-item">Players</li></Link>
-                <Link to="/teams" className="nav__list-link"><li className="nav__list-item">My Teams</li></Link>
-                <Link to="/" className="nav__list-link"><li className="nav__list-item">Season</li></Link>
-                <Link to="/" className="nav__list-link"><li className="nav__list-item">About</li></Link>
+                <NavLink to="/signup" className="nav__list-link"><li className="nav__list-item">Log In</li></NavLink>
+                <NavLink to="/players" className="nav__list-link"><li className="nav__list-item">Players</li></NavLink>
+                <NavLink to="/teams" className="nav__list-link"><li className="nav__list-item">My Teams</li></NavLink>
+                <NavLink to="/" className="nav__list-link"><li className="nav__list-item">Season</li></NavLink>
+                <NavLink to="/" className="nav__list-link"><li className="nav__list-item">About</li></NavLink>
             </ul>
         </div>
     )

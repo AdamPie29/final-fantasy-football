@@ -52,6 +52,7 @@ button {
     
     @include tablet {
         display: flex;
+        border-bottom: 3px solid black;
     }
     
 }

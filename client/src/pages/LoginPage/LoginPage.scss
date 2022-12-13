@@ -1,10 +1,15 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .login-page {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include tablet {
+        margin-top: 2rem;
+    }
 
     &__form {
         display: flex;
@@ -14,6 +19,12 @@
         padding-top: 1rem;
         background-color: $secondary-grey;
         border-radius: 10px;
+
+        @include tablet {
+            margin: 1rem 12rem;
+            padding: 1.5rem 0rem;
+        }
+
     }
 }
 
@@ -22,12 +33,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include tablet {
+        padding-bottom: 0rem;
+    }
 }
 
 .formTitle {
 color: #707c8b;
 font-weight: 300;
-margin-bottom: 50px;
+margin-bottom: 3.125rem;
 }
 
 .formTitleLink {
@@ -35,8 +50,8 @@ color: #707c8b;
 text-decoration: none;
 display: inline-block;
 font-size: 1.7em;
-margin: 0 10px;
-padding-bottom: 5px;
+margin: 0 0.625rem;
+padding-bottom: 0.3125rem;
 }
 
 .formTitleLink:first-child {
@@ -49,7 +64,7 @@ border-bottom: 1px solid #6b5b95;
 }
 
 .formField {
-margin-bottom: 40px;
+margin-bottom: 2.5rem;
 display: flex;
 flex-direction: column;
 width: 17rem;
@@ -71,7 +86,7 @@ outline: none;
 border-bottom: 1px solid #445366;
 font-size: 1em;
 font-weight: 300;
-padding-bottom: 10px;
+padding-bottom: 0.625rem;
 margin-top: 0.25rem;
 }
 
@@ -83,7 +98,7 @@ color: #616e7f;
 color: white;
 border: 1px solid $primary-white;
 outline: none;
-border-radius: 25px;
+border-radius: 1.5625rem;
 padding: 15px 70px;
 font-size: 0.8em;
 font-weight: 500;
@@ -96,7 +111,7 @@ color: #66707d;
 text-decoration: none;
 display: inline-block;
 border-bottom: 1.5px solid #6b5b95;
-padding-bottom: 5px;
+padding-bottom: 0.3125rem;
 width: 9rem;
 text-align: center;
 }
