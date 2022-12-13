@@ -4,8 +4,11 @@
     width: 100%;
 
     @include tablet {
-        width: 60%;
-        
+        width: 60%;   
+    }
+
+    @include desktop {
+        width: 30%;
     }
 
     &__img {

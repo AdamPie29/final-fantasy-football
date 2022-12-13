@@ -58,5 +58,10 @@ button {
         display: flex;
         border-bottom: 3px solid black;
     }
+
+    @include desktop {
+        display: flex;
+        justify-content: space-between;
+    }
     
 }
