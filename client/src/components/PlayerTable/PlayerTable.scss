@@ -1,7 +1,10 @@
+@use "../../styles/partials/variables" as *;
+
 .playertable {
     padding: 1rem;
+    
     &__table {
-        background-color: #1E1F25;
+        background-color: $background-table;
         border-radius: 20px;
         height: 30rem;
         padding: 0 10px 10px 10px;
