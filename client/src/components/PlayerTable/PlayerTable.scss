@@ -10,6 +10,10 @@
         justify-content: center;
         margin-bottom: 4rem;
     }
+
+    @include desktop {
+        padding: 0rem 0rem;
+    }
     
     &__table {
         background-color: $background-table;
