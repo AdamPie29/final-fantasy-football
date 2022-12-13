@@ -1,6 +1,12 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .nav {
+
+    @include tablet {
+        width: 100%;
+        height: inherit;
+    }
 
     &__list {
         display: flex;
@@ -11,9 +17,24 @@
         color: $primary-white;
         background-color: $background-nav;
 
+        @include tablet {
+            height: 100%;
+            border-bottom: 3px solid black;
+            background-color: transparent;
+            padding: 0.25rem 2rem;
+            align-items: center;
+        }
+
         &-item {
             font-size: 0.815rem;
             list-style: none;
+        
+            @include tablet {
+                padding: 0.75rem;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $secondary-cloud;
+            }
             
         }
 

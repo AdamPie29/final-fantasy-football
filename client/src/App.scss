@@ -1,4 +1,4 @@
-@use "./styles/partials/mixins" as responsive;
+@use "./styles/partials/mixins" as *;
 @use './styles/partials/typography' as *;
 @use './styles/partials/variables' as *;
 
@@ -46,4 +46,12 @@ button {
 
 .te {
     color: #d97f35
+}
+
+.page-tablet {
+    
+    @include tablet {
+        display: flex;
+    }
+    
 }

@@ -39,12 +39,28 @@
         }
     }
 
+    &__not-logged-title {
+        padding-top: 1rem;
+        font-weight: 500;
+    }
+
     &__not-logged-img {
         margin-top: 2rem;
         width: 50vw;
         margin-bottom: 2rem;
-        border: 1px solid red;
         border-radius: 4px;
-        box-shadow: 5px 5px 70px 40px red;
+        // box-shadow: 5px 5px 70px 40px red;
+    }
+
+    &__not-logged-button {
+        padding: 0.5rem 2rem;
+        border-radius: 25px;
+        border: 1px solid $primary-white;
+        color: $primary-white;
+
+    }
+
+    &__not-logged-text {
+        margin: 1.5rem 0rem;
     }
 }

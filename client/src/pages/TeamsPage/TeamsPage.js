@@ -60,9 +60,11 @@ function TeamsPage() {
     if (failedAuth) {
         return (
             <main className="teams">
-                <p>You must be logged in to see this page.</p>
+                <p className="teams__not-logged-title">You must be logged in to see this page.</p>
                 <img src={peytonface} className="teams__not-logged-img" alt="Peyton Manning's disappointed face" />
-                <p><Link to="/login">Log in</Link></p>
+                <Link to="/login"><button className="teams__not-logged-button">Log in</button></Link>
+                <p className="teams__not-logged-text">or...</p>
+                <Link to="/signup"><button className="teams__not-logged-button">Sign up now!</button></Link>
             </main>
         );
     }
