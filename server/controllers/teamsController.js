@@ -18,21 +18,7 @@ exports.addTeam = async (req, res) => {
 // Get One Team
 
 exports.getOneTeam = async (req, res) => {
-    try {
-        const teamData = [] = await knex('teams')
-        // .join ('players_statistics as player2', 'teams.player_idRB1', '=', 'players_statistics.PlayerID')
-        .join ('players_statistics', 'teams.player_id*', '=', 'players_statistics.PlayerID')
-        // .join ('players_statistics', 'teams.player_idWR1', '=', 'players_statistics.PlayerID')
-        // .join ('players_statistics', 'teams.player_idWR2', '=', 'players_statistics.PlayerID')
-        // .join ('players_statistics', 'teams.player_idTE', '=', 'players_statistics.PlayerID')
-        // .where here, this would be where team equals user id when i get that functional
-        .select('*')
-        .where ('id', req.params.id)
-        console.log(teamData)
-        res.json(teamData);
-    } catch (error) {
-        res.status(400).send("Error retreiving team data")
-    }
+
 };
 
 exports.createNewTeam = async (req, res) => {
@@ -54,5 +40,28 @@ exports.getAllTeams = async (req, res) => {
         res.json(teamData);
     } catch (error) {
         res.status(400).send("Error retreiving all teams made by user")
+    }
+};
+
+// Get all teams made by one user
+
+exports.getAllTeamsByUser = async (req, res) => {
+    try {
+        const teamData = await knex('team_joiner')
+        .where('user_id', req.params.user_id)
+        .select('*')
+        const teamIdsWithObject = [...new Map(teamData.map((member)=> [member.TeamId, member])).values()]
+        const teamIds = []
+        for (let i=0; i < teamIdsWithObject.length; i++) {
+            teamIds.push(teamIdsWithObject[i].TeamId)
+        }
+        const teamArray = teamIds.map(id => {
+            return teamData.filter((element)=> {
+                return element.TeamId == id
+            })
+        })
+        res.json(teamArray)
+    } catch (error) {
+        res.status(400).send("Error retreiving aaron teams")
     }
 };

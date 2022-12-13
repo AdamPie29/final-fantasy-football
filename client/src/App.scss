@@ -20,7 +20,7 @@ html {
 body {
     font-family: 'Roboto';
     color: $primary-white;
-    background-color: $background-grey;
+    background-color: $background-primary;
 }
 
 button, input, select, textarea {
@@ -34,4 +34,16 @@ button, input, select, textarea {
 
 button {
     cursor: pointer;
+}
+
+.qb {
+    color: #a12020
+}
+
+.rb {
+    color: #7bb258
+}
+
+.te {
+    color: #d97f35
 }

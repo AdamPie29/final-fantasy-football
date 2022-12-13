@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import peytonface from "../../assets/images/peytonface.jpeg";
+import TeamCard from "../../components/TeamCard/TeamCard";
 
 
 function TeamsPage() {
@@ -15,7 +16,7 @@ function TeamsPage() {
     const [failedAuth, setFailedAuth] = useState(false);
 
     // pieces of state to populate My Teams section
-    const [myTeams, setMyTeams] = useState(null)
+    const [myTeams, setMyTeams] = useState([])
     
     // to deny access to page if not logged in
     useEffect(()=> {
@@ -31,10 +32,15 @@ function TeamsPage() {
                 Authorization: `Bearer: ${token}`
             }
         })
+        // to populate teams created by user
             .then((response)=> {
                 setUser(response.data);
                 sessionStorage.setItem("user_id", response.data.id)
-                console.log(response.data)
+                return axios.get(`http://localhost:8080/teams/${response.data.id}`)
+            })
+            .then((response)=> {
+                setMyTeams(response.data);
+                console.log(response.data);
             })
             .catch((error)=> {
                 console.log(error);
@@ -42,23 +48,11 @@ function TeamsPage() {
             });
     }, []);
 
-    // to populate My Teams page for specific user
-    useEffect(()=> {
-        const user_id = sessionStorage.getItem("user_id")
-        console.log(user_id)
-        axios.get(`http://localhost:8080/teams/${user_id}`)
-            .then((response)=> {
-                console.log(response);
-            })
-            .catch((error)=> {
-                console.log(error);
-            })
-    }, [])
-
     // to handle log out
     const handleLogout =  async () => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         sessionStorage.removeItem("token");
+        sessionStorage.removeItem("user_id");
         setUser(null);
         setFailedAuth(true);
     };
@@ -85,13 +79,21 @@ function TeamsPage() {
         <div className="teams">
             <div className="teams__title-con">
                 <h1 className="teams__title-con__title">MY TEAMS</h1>
-                <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
-                <button className="teams__title-con__logout" onClick={handleLogout}>Log out</button>
+                <div className="teams__title-con__buttons">
+                    <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
+                </div>
+                
+                {myTeams.map((team)=> {
+                    return (
+                        <TeamCard
+                        props={team}
+                        />
+                    )
+                })}
             </div>
+            <button className="teams__title-con__logout" onClick={handleLogout}>Log out</button>
         </div>
     )
-
-
 }
 
 export default TeamsPage;
