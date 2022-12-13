@@ -84,14 +84,16 @@ function TeamsPage() {
                 <div className="teams__title-con__buttons">
                     <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
                 </div>
-                
-                {myTeams.map((team)=> {
+                <div className="teams__title-con__desktop">
+                    {myTeams.map((team)=> {
                     return (
                         <TeamCard
                         props={team}
                         />
                     )
-                })}
+                    })}
+                </div>
+                
                 <div className="teams__title-con__logout">
                     <button className="teams__title-con__logout__button" onClick={handleLogout}>Log out</button>
                 </div>

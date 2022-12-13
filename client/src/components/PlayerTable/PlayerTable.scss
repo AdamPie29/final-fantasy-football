@@ -26,5 +26,9 @@
             padding: 0rem 1rem;
             max-width: 45.6rem;
         }
+
+        @include desktop {
+            height: 40rem;
+        }
     }
 }
