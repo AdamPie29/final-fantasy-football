@@ -42,14 +42,20 @@
     &__not-logged-title {
         padding-top: 1rem;
         font-weight: 500;
+
+        @include tablet {
+            font-size: 1.25rem;
+        }
     }
 
     &__not-logged-img {
         margin-top: 2rem;
         width: 50vw;
         margin-bottom: 2rem;
-        border-radius: 4px;
-        // box-shadow: 5px 5px 70px 40px red;
+        border-radius: 50%;
+        height: 50vw;
+        object-fit: cover;
+        object-position: 10% 10%;
     }
 
     &__not-logged-button {

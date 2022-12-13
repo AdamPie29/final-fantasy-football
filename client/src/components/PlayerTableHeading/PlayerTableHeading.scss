@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .heading {
     display: flex;
@@ -23,6 +24,16 @@
     &__title-name {
         min-width: 10rem;
         justify-content: center;
+        flex: 1;
+        max-width: 12rem;
+
+        @include tablet {
+            width: 9rem;
+            min-width: 10rem;
+            flex: 1;
+            max-width: 14rem;
+            font-size: 0.715rem;
+        }
     }
 }
 

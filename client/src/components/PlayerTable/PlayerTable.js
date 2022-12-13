@@ -1,5 +1,5 @@
 import "./PlayerTable.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import PlayerItem from "../PlayerItem/PlayerItem";
 import PlayerTableHeading from "../PlayerTableHeading/PlayerTableHeading";
 import axios from 'axios';
@@ -57,9 +57,7 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     }, [fumblesOrdered])
 
     return (
-
         <div className="playertable">
-            
             <div className="playertable__table">
                 <PlayerTableHeading 
                 setNameOrdered={setNameOrdered}
