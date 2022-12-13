@@ -5,7 +5,7 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding-bottom: 4rem;
 
     &__title-con {
         display: flex;
@@ -32,10 +32,16 @@
         }
 
         &__logout {
-            border: 1px solid $primary-white;
-            width: 6rem;
-            padding: 0.5rem;
-            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__button {
+                border: 1px solid $primary-white;
+                width: 6rem;
+                padding: 0.5rem;
+                border-radius: 15px;
+            }
         }
     }
 
@@ -64,9 +70,16 @@
         border: 1px solid $primary-white;
         color: $primary-white;
 
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 
     &__not-logged-text {
         margin: 1.5rem 0rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 }
