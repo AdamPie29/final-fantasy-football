@@ -74,65 +74,66 @@ function CreateTeamPage () {
 
     return (
         <div className="createteam">
-            <div className="createteam__teamform">
-                <h1 className="createteam__teamform__title">CREATE TEAM</h1>
-                <form onSubmit={handleSubmit} className="createteam__teamform__form">
-                    <input
-                    className="createteam__teamform__form__textarea"
-                    id="teaminput"
-                    name="teaminput"
-                    placeholder="Your team name"
-                    type="text"
-                     />
-                    <button type="submit" className="createteam__teamform__form__button"><img src={save} className="createteam__teamform__form__button--icon" alt="floppy disk save"/>Save Team</button>
-                </form>
-            </div>
+            <h1 className="createteam__teamform__title">CREATE TEAM</h1>
+            <div className="createteam__desktop-con">
+                <div className="createteam-desktop-con__teamform">
+                    <div className="createteam__teamform">
+                        <form onSubmit={handleSubmit} className="createteam__teamform__form">
+                            <input
+                            className="createteam__teamform__form__textarea"
+                            id="teaminput"
+                            name="teaminput"
+                            placeholder="Your team name"
+                            type="text"
+                            />
+                            <button type="submit" className="createteam__teamform__form__button"><img src={save} className="createteam__teamform__form__button--icon" alt="floppy disk save"/>Save Team</button>
+                        </form>
+                    </div>
 
-            <div className="createteam__team">
-                <p className="createteam__team__title">YOUR ROSTER:</p>
-                {team.map((player)=> {
-                    return (
-                        <AddPlayerCard
-                        props={player}
-                        />
-                    )
-                })}
-            </div>
+                    <div className="createteam__team">
+                        <p className="createteam__team__title">YOUR ROSTER:</p>
+                        {team.map((player)=> {
+                            return (
+                                <AddPlayerCard
+                                props={player}
+                                />
+                            )
+                        })}
+                    </div>
 
-            <div className="createteam__clear">
-                <button className="createteam__clear__button" onClick={() => clearTeam()}><img src={refresh} alt="clockwise arrow" className="createteam__clear__button__icon"/>Start Fresh</button>
+                    <div className="createteam__clear">
+                        <button className="createteam__clear__button" onClick={() => clearTeam()}><img src={refresh} alt="clockwise arrow" className="createteam__clear__button__icon"/>Start Fresh</button>
+                    </div>
+                </div>
+                <div className="playertable-con">
+                    <PlayerTable 
+                    addPlayer={addPlayer}
+                    playerData={playerData}
+                    setPlayerData={setPlayerData}
+                    nameOrdered={nameOrdered}
+                    setNameOrdered={setNameOrdered}
+                    fanpointsOrdered={fanpointsOrdered}
+                    setFanpointsOrdered={setFanpointsOrdered}
+                    passyardsOrdered={passyardsOrdered}
+                    setPassyardsOrdered={setPassyardsOrdered}
+                    passtdsOrdered={passtdsOrdered}
+                    setPasstdsOrdered={setPasstdsOrdered}
+                    intOrdered={intOrdered}
+                    setIntOrdered={setIntOrdered}
+                    rushyardsOrdered={rushyardsOrdered}
+                    setRushyardsOrdered={setRushyardsOrdered}
+                    rushtdsOrdered={rushtdsOrdered}
+                    setRushtdsOrdered={setRushtdsOrdered}
+                    receiveyardsOrdered={receiveyardsOrdered}
+                    setReceiveyardsOrdered={setReceiveyardsOrdered}
+                    receivetdsOrdered={receivetdsOrdered}
+                    setReceivetdsOrdered={setReceivetdsOrdered}
+                    fumblesOrdered={fumblesOrdered}
+                    setFumblesOrdered={setFumblesOrdered}
+                    />
+                </div>
             </div>
-
-            <div className="playertable-con">
-                <PlayerTable 
-                addPlayer={addPlayer}
-                playerData={playerData}
-                setPlayerData={setPlayerData}
-                nameOrdered={nameOrdered}
-                setNameOrdered={setNameOrdered}
-                fanpointsOrdered={fanpointsOrdered}
-                setFanpointsOrdered={setFanpointsOrdered}
-                passyardsOrdered={passyardsOrdered}
-                setPassyardsOrdered={setPassyardsOrdered}
-                passtdsOrdered={passtdsOrdered}
-                setPasstdsOrdered={setPasstdsOrdered}
-                intOrdered={intOrdered}
-                setIntOrdered={setIntOrdered}
-                rushyardsOrdered={rushyardsOrdered}
-                setRushyardsOrdered={setRushyardsOrdered}
-                rushtdsOrdered={rushtdsOrdered}
-                setRushtdsOrdered={setRushtdsOrdered}
-                receiveyardsOrdered={receiveyardsOrdered}
-                setReceiveyardsOrdered={setReceiveyardsOrdered}
-                receivetdsOrdered={receivetdsOrdered}
-                setReceivetdsOrdered={setReceivetdsOrdered}
-                fumblesOrdered={fumblesOrdered}
-                setFumblesOrdered={setFumblesOrdered}
-                />
-            </div>
-            
         </div>
-
     )
     
     // populates players database

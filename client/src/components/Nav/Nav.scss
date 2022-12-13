@@ -1,6 +1,13 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .nav {
+
+    @include tablet {
+        width: 100%;
+        margin-left: 2rem;
+        max-width: 34rem;
+    }
 
     &__list {
         display: flex;
@@ -11,9 +18,23 @@
         color: $primary-white;
         background-color: $background-nav;
 
+        @include tablet {
+            height: 100%;
+            background-color: transparent;
+            padding: 0.25rem 1rem;
+            align-items: center;
+        }
+
         &-item {
             font-size: 0.815rem;
             list-style: none;
+        
+            @include tablet {
+                padding: 0.75rem;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $secondary-cloud;
+            }
             
         }
 
@@ -24,6 +45,18 @@
                 text-decoration: none;
                 color: $primary-white;
             }
+
+            @include tablet {
+                :hover {
+                    background-color: $background-graphite;
+                    border-radius: 8px;
+                }
+            }
         }
     }
+}
+
+.active {
+    background-color: $background-graphite;
+    border-radius: 8px;
 }

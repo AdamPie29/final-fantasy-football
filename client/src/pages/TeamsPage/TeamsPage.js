@@ -60,9 +60,11 @@ function TeamsPage() {
     if (failedAuth) {
         return (
             <main className="teams">
-                <p>You must be logged in to see this page.</p>
+                <p className="teams__not-logged-title">You must be logged in to see this page.</p>
                 <img src={peytonface} className="teams__not-logged-img" alt="Peyton Manning's disappointed face" />
-                <p><Link to="/login">Log in</Link></p>
+                <Link to="/login"><button className="teams__not-logged-button">Log in</button></Link>
+                <p className="teams__not-logged-text">or...</p>
+                <Link to="/signup"><button className="teams__not-logged-button">Sign up now!</button></Link>
             </main>
         );
     }
@@ -77,8 +79,8 @@ function TeamsPage() {
 
     return (
         <div className="teams">
+            <h1 className="teams__title">MY TEAMS</h1>
             <div className="teams__title-con">
-                <h1 className="teams__title-con__title">MY TEAMS</h1>
                 <div className="teams__title-con__buttons">
                     <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
                 </div>
@@ -90,8 +92,10 @@ function TeamsPage() {
                         />
                     )
                 })}
+                <div className="teams__title-con__logout">
+                    <button className="teams__title-con__logout__button" onClick={handleLogout}>Log out</button>
+                </div>
             </div>
-            <button className="teams__title-con__logout" onClick={handleLogout}>Log out</button>
         </div>
     )
 }

@@ -5,11 +5,24 @@
     display: flex;
     flex-direction: column;
 
+    &__desktop-con {
+        
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
     &__teamform {
         padding: 1rem;
 
+        @include desktop {
+            width: 30rem;
+            padding-top: 0rem;
+        }
+
         &__title {
-            margin-bottom: 1rem;
+            padding: 1rem;
         }
 
         &__form {
@@ -25,6 +38,14 @@
                 border: 1px solid grey;
                 text-indent: 5%;
                 width: 100%;
+
+                @include tablet {
+                    width: 50%;
+                }
+
+                @include desktop {
+                    width: 70%;
+                }
             }
 
             &__button {
@@ -33,6 +54,15 @@
                 width: 60%;
                 padding: 0.25rem;
                 border-radius: 15px;
+
+                @include tablet {
+                    margin-top: 1.5rem;
+                    width: 20%;
+                }
+
+                @include desktop {
+                    width: 40%;
+                }
 
                 &--icon {
                     width: 1rem;
@@ -48,13 +78,28 @@
     &__team {
         padding: 0rem 1rem;
 
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         &__title {
             font-weight: 500;
+
+            @include tablet {
+                font-size: 1.25rem;
+            }
         }
     }
 
     &__clear {
         padding: 0rem 1rem;
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+        }
 
         &__button {
             margin-top: 1rem;
@@ -62,6 +107,16 @@
             width: 40%;
             padding: 0.25rem;
             border-radius: 15px;
+
+            @include tablet {
+                margin-top: 1.5rem;
+                width: 20%;
+                margin-bottom: 1.5rem;
+            }
+
+            @include desktop {
+                width: 40%;
+            }
 
             &__icon {
                 width: 1rem;

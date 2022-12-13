@@ -1,13 +1,30 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .playertable {
     padding: 1rem;
+
+    @include tablet {
+        padding: 0rem 4rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
+
+    @include desktop {
+        padding: 0rem 0rem;
+    }
     
     &__table {
         background-color: $background-table;
         border-radius: 20px;
         height: 30rem;
-        padding: 0 10px 10px 10px;
+        padding: 0 0.625rem 0.625rem 0.625rem;
         overflow: scroll;
+
+        @include tablet {
+            padding: 0rem 1rem;
+            max-width: 45.6rem;
+        }
     }
 }

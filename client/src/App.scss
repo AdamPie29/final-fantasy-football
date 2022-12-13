@@ -1,4 +1,4 @@
-@use "./styles/partials/mixins" as responsive;
+@use "./styles/partials/mixins" as *;
 @use './styles/partials/typography' as *;
 @use './styles/partials/variables' as *;
 
@@ -36,14 +36,27 @@ button {
     cursor: pointer;
 }
 
-.qb {
-    color: #a12020
+.QB {
+    color: #e75454
 }
 
-.rb {
-    color: #7bb258
+.WR {
+    color: rgb(93, 171, 248);
 }
 
-.te {
+.RB {
+    color: #97e16a
+}
+
+.TE {
     color: #d97f35
+}
+
+.page-tablet {
+    
+    @include tablet {
+        display: flex;
+        border-bottom: 3px solid black;
+    }
+    
 }

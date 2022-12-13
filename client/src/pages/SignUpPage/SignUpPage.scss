@@ -1,10 +1,17 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .signup-page {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    @include tablet {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__form {
         display: flex;
@@ -14,6 +21,21 @@
         padding-top: 1rem;
         background-color: $secondary-grey;
         border-radius: 10px;
+        max-width: 22.25rem;
+        height: 36rem;
+
+        @include tablet {
+            // margin: 1rem 12rem;
+            // padding: 1.5rem 0rem;
+            width: 22.25rem;
+        }
+
+        &__title {
+
+            @include tablet {
+                font-size: 1.25rem;
+            }
+        }
     }
 }
 
@@ -22,6 +44,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include tablet {
+        padding-bottom: 0rem;
+        margin-bottom: 3rem;
+    }
 }
 
 .formTitle {

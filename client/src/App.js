@@ -12,8 +12,10 @@ import LoginPage from './pages/LoginPage/LoginPage';
 function App() {
   return (
     <BrowserRouter>
-    <Header />
-    <Nav />
+    <div className="page-tablet">
+      <Header />
+      <Nav /> 
+    </div>
     <main className='page-container'>
       <Routes>
         <Route path="/" element={<Homepage />} />
