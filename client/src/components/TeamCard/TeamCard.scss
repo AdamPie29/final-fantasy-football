@@ -1,0 +1,12 @@
+.team-card {
+    margin: 1rem;
+    border: 1px solid blue;
+
+    &__player-info {
+        display: flex;
+
+        &__img {
+            width: 1.5rem;
+        }
+    }
+}

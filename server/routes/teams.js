@@ -11,7 +11,8 @@ router
 
 router
     .route('/:user_id')
-    .get(teamsController.getAllTeams);
+    // .get(teamsController.getAllTeams);
+    .get(teamsController.getAllTeamsByUser);
 
 router
     .route('/newteam')

@@ -56,3 +56,24 @@ exports.getAllTeams = async (req, res) => {
         res.status(400).send("Error retreiving all teams made by user")
     }
 };
+
+exports.getAllTeamsByUser = async (req, res) => {
+    try {
+        const teamData = await knex('team_joiner')
+        .where('user_id', req.params.user_id)
+        .select('*')
+        const teamIdsWithObject = [...new Map(teamData.map((member)=> [member.TeamId, member])).values()]
+        const teamIds = []
+        for (let i=0; i < teamIdsWithObject.length; i++) {
+            teamIds.push(teamIdsWithObject[i].TeamId)
+        }
+        const teamArray = teamIds.map(id => {
+            return teamData.filter((element)=> {
+                return element.TeamId == id
+            })
+        })
+        res.json(teamArray)
+    } catch (error) {
+        res.status(400).send("Error retreiving aaron teams")
+    }
+};

@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import peytonface from "../../assets/images/peytonface.jpeg";
+import TeamCard from "../../components/TeamCard/TeamCard";
+import TeamCardPlayerCard from "../../components/TeamCardPlayerCard/TeamCardPlayerCard";
 
 
 function TeamsPage() {
@@ -15,7 +17,7 @@ function TeamsPage() {
     const [failedAuth, setFailedAuth] = useState(false);
 
     // pieces of state to populate My Teams section
-    const [myTeams, setMyTeams] = useState(null)
+    const [myTeams, setMyTeams] = useState([])
     
     // to deny access to page if not logged in
     useEffect(()=> {
@@ -48,7 +50,8 @@ function TeamsPage() {
         console.log(user_id)
         axios.get(`http://localhost:8080/teams/${user_id}`)
             .then((response)=> {
-                console.log(response);
+                setMyTeams(response.data);
+                console.log(response.data);
             })
             .catch((error)=> {
                 console.log(error);
@@ -81,12 +84,25 @@ function TeamsPage() {
         );
     }
 
+    // to grab team names to build My Teams cards
+    // const teamArray = []
+    // for (let i=0; i < myTeams.length; i+=6) {
+    //     teamArray.push(myTeams[i].TeamName)
+    // }
+
     return (
         <div className="teams">
             <div className="teams__title-con">
                 <h1 className="teams__title-con__title">MY TEAMS</h1>
                 <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
                 <button className="teams__title-con__logout" onClick={handleLogout}>Log out</button>
+                {myTeams.map((team)=> {
+                    return (
+                        <TeamCard
+                        props={team}
+                        />
+                    )
+                })}
             </div>
         </div>
     )
