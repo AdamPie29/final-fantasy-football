@@ -1,6 +1,5 @@
 import "./PlayerItem.scss";
 import add from "../../assets/icons/add.svg";
-import axios from 'axios';
 
 function PlayerItem ({ FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team, player, addPlayer }) {
 

@@ -2,6 +2,7 @@ import "./Homecard.scss";
 import peyton from "../../assets/images/peyton-manning.jpg";
 import season from "../../assets/images/season.png";
 import team from "../../assets/images/team.jpg";
+import seasonDesk from "../../assets/images/seasondesk.png";
 import { Link } from 'react-router-dom';
 
 function Homecard() {
@@ -29,7 +30,8 @@ function Homecard() {
             <div className="hc-card">
                 <Link to="/" className="hc-card__link">
                     <div className="hc-card-con"> 
-                        <img src={season} className="hc-card__img hc-card__img--season" alt="Peyton versus Brady"/>
+                        <img src={season} className="hc-card__img hc-card__img--season hc-card__img--season--mobile" alt="Manning versus Brady"/>
+                        <img src={seasonDesk} className="hc-card__img hc-card__img--season hc-card__img--season--desktop" alt="Manning versus Brady"/>
                         <p className="hc-card__title-season">SEASON</p>
                     </div>
                     <div className="hc-card__overlay"></div>
