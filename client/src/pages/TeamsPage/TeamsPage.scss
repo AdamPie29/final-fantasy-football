@@ -22,6 +22,16 @@
         flex-direction: column;
         justify-content: space-between;
 
+        &__noteams {
+            margin: 1rem;
+            width: 30rem;
+            text-align: center;
+
+            @include desktop {
+                font-size: 1.5rem;
+            }
+        }
+
         &__buttons {
             display: flex;
             flex-direction: column;

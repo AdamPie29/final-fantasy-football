@@ -1,15 +1,12 @@
-import "./TeamsPage.scss";
-import addTeam from "../../assets/icons/add-team.svg";
+import "./SeasonModePage.scss";
 import axios from 'axios';
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import playGame from "../../assets/images/play_game.gif";
 import peytonface from "../../assets/images/peytonface.jpeg";
-import TeamCard from "../../components/TeamCard/TeamCard";
+import SeasonTeamCard from "../../components/SeasonTeamCard/SeasonTeamCard";
 
-
-function TeamsPage() {
-
-    const navigate = useNavigate();
+function SeasonModePage ({option, selected, onChange}) {
 
     // pieces of state to handle user authentication
     const [user, setUser] = useState(null)
@@ -17,7 +14,10 @@ function TeamsPage() {
 
     // pieces of state to populate My Teams section
     const [myTeams, setMyTeams] = useState([])
-    
+
+    // pieces of state to populate Computer teams
+    const [compTeams, setCompTeams] = useState([])
+   
     // to deny access to page if not logged in
     useEffect(()=> {
         const token = sessionStorage.getItem("token");
@@ -40,6 +40,11 @@ function TeamsPage() {
             })
             .then((response)=> {
                 setMyTeams(response.data);
+                // to populate Computer's teams to play season
+                return axios.get('http://localhost:8080/teams/enemyteams')
+            })    
+            .then((response)=> {
+                setCompTeams(response.data);
                 console.log(response.data);
             })
             .catch((error)=> {
@@ -47,15 +52,6 @@ function TeamsPage() {
                 setFailedAuth(true);
             });
     }, []);
-
-    // to handle log out
-    const handleLogout =  async () => {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        sessionStorage.removeItem("token");
-        sessionStorage.removeItem("user_id");
-        setUser(null);
-        setFailedAuth(true);
-    };
 
     if (failedAuth) {
         return (
@@ -77,32 +73,24 @@ function TeamsPage() {
         );
     }
 
-    
+    // Actual Page Contents
     return (
-        <div className="teams">
-            <h1 className="teams__title">MY TEAMS</h1>
-            <div className="teams__title-con">
-            {myTeams.length < 1 && <p className="teams__title-con__noteams">You haven't created a team yet, Coach!</p>}
-            {myTeams.length < 1 && <p className="teams__title-con__noteams">Click the button below to get started.</p>}
-                <div className="teams__title-con__buttons">
-                    <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
+        <div className="season">
+           <img src={playGame} alt="play football" />
+                <div className="season__title">
+                    <h1>SEASON MODE</h1>
                 </div>
-                <div className="teams__title-con__desktop">
-                    {myTeams.map((team)=> {
-                    return (
-                        <TeamCard
-                        props={team}
-                        />
-                    )
-                    })}
-                </div>
-                
-                <div className="teams__title-con__logout">
-                    <button className="teams__title-con__logout__button" onClick={handleLogout}>Log out</button>
-                </div>
+            <div className="season__choose-team">
+                {myTeams.map((team)=> {
+                return (
+                    <SeasonTeamCard
+                    props={team}
+                    />
+                )
+                })}               
             </div>
         </div>
     )
 }
 
-export default TeamsPage;
+export default SeasonModePage;

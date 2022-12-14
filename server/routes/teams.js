@@ -10,11 +10,17 @@ router
     .get(teamsController.getOneTeam);
 
 router
+    .route('/enemyteams')
+    .get(teamsController.GetComputerTeams);
+
+router
     .route('/:user_id')
     .get(teamsController.getAllTeamsByUser);
 
 router
     .route('/newteam')
     .post(teamsController.createNewTeam);
+
+
 
 module.exports = router;
