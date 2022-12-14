@@ -2,7 +2,7 @@ import "./Homecard.scss";
 import peyton from "../../assets/images/peyton-manning.jpg";
 import season from "../../assets/images/season.png";
 import team from "../../assets/images/team.jpg";
-import seasonDesk from "../../assets/images/seasondesk.png";
+import seasonDesk from "../../assets/images/season_desk.png";
 import { Link } from 'react-router-dom';
 
 function Homecard() {
