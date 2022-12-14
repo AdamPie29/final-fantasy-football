@@ -28,7 +28,7 @@ function Homecard() {
                 </Link>
             </div>
             <div className="hc-card">
-                <Link to="/" className="hc-card__link">
+                <Link to="/season" className="hc-card__link">
                     <div className="hc-card-con"> 
                         <img src={season} className="hc-card__img hc-card__img--season hc-card__img--season--mobile" alt="Manning versus Brady"/>
                         <img src={seasonDesk} className="hc-card__img hc-card__img--season hc-card__img--season--desktop" alt="Manning versus Brady"/>

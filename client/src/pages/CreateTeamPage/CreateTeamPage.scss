@@ -55,6 +55,7 @@
                 }
 
                 @include desktop {
+                    margin-top: 0.5rem;
                     width: 94%;
                 }
             }
@@ -126,7 +127,7 @@
             }
 
             @include desktop {
-                width: 40%;
+                width: 60%;
             }
 
             &__icon {

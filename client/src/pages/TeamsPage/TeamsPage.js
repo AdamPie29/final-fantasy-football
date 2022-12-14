@@ -77,10 +77,13 @@ function TeamsPage() {
         );
     }
 
+    
     return (
         <div className="teams">
             <h1 className="teams__title">MY TEAMS</h1>
             <div className="teams__title-con">
+            {myTeams.length < 1 && <p className="teams__title-con__noteams">You haven't created a team yet, Coach!</p>}
+            {myTeams.length < 1 && <p className="teams__title-con__noteams">Click the button below to get started.</p>}
                 <div className="teams__title-con__buttons">
                     <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
                 </div>

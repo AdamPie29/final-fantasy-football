@@ -8,6 +8,7 @@ import TeamsPage from './pages/TeamsPage/TeamsPage';
 import CreateTeamPage from './pages/CreateTeamPage/CreateTeamPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SeasonModePage from './pages/SeasonModePage/SeasonModePage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/createteam" element={<CreateTeamPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/season" element={<SeasonModePage />} />
 
 
 

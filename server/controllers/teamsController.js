@@ -62,6 +62,29 @@ exports.getAllTeamsByUser = async (req, res) => {
         })
         res.json(teamArray)
     } catch (error) {
-        res.status(400).send("Error retreiving aaron teams")
+        res.status(400).send("Error retreiving User's teams")
     }
 };
+
+// Get teams made by the Computer for Season Mode
+
+exports.GetComputerTeams = async (req, res) => {
+    try {
+        const teamData = await knex('team_joiner')
+        .where("user_id", "92f85be2-9346-432d-ad20-3dc998053269")
+        .select('*')
+        const teamIdsWithObject = [...new Map(teamData.map((member)=> [member.TeamId, member])).values()]
+        const teamIds = []
+        for (let i=0; i < teamIdsWithObject.length; i++) {
+            teamIds.push(teamIdsWithObject[i].TeamId)
+        }
+        const teamArray = teamIds.map(id => {
+            return teamData.filter((element)=> {
+                return element.TeamId == id
+            })
+        })
+        res.json(teamArray)
+    } catch (error) {
+        res.status(400).send("Error retreiving Computer's teams")
+    }
+}
