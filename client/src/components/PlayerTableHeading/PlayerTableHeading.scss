@@ -8,6 +8,10 @@
     // border-radius: 20px;
     height: 2rem;
     // padding: 0 10px 10px 10px;
+    
+    @include desktop {
+        margin-bottom: 1rem;
+    }
 
     &__title {
         display: flex;
@@ -19,6 +23,15 @@
         padding-right: 1rem;
         font-weight: 600;
         align-items: center;
+
+        @include desktop {
+            width: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 1.9rem;
+            padding: 0;
+            
+        }
     }
 
     &__title-name {
@@ -33,6 +46,13 @@
             flex: 1;
             max-width: 14rem;
             font-size: 0.715rem;
+        }
+
+        @include desktop {
+            font-size: 1rem;
+            font-weight: 500;
+            max-width: 25rem;
+            width: 19.1rem;
         }
     }
 }

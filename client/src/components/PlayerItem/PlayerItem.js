@@ -11,8 +11,11 @@ function PlayerItem ({ FantasyPointsFanDuel, FirstName, Fumbles, LastName, Passi
                 <img className="player-row__player__img" src={PhotoUrl} alt="Player " />
                 <div className="player-row__player__details">
                     <p className="player-row__player__details__name">{FirstName + ' ' + LastName}</p>
-                    <p className="player-row__player__details__team">{Team} -</p>
-                    <p className="player-row__player__details__position">{Position}</p>
+                    <div className="player-row__player__details__team-info">
+                        <p className="player-row__player__details__team-info__team">{Team} - </p>
+                        <p className="player-row__player__details__team-info__position">{Position}</p>
+                    </div>
+                    
                 </div>
             </div>
             <p className="player-row__cat">{FantasyPointsFanDuel}</p>

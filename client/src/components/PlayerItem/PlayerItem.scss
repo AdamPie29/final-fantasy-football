@@ -8,20 +8,35 @@
     &:hover {
         background-color: #383636;
     }
+
+    @include desktop {
+        margin: 1rem 0rem;
+        background-color: rgb(74, 74, 67);
+    }
    
     &__player {
         display: flex;
         flex-direction: row;
         min-width: 10rem;
+        padding: 0rem 1rem;
 
         &__add {
             width: 1rem;
             padding-top: 0.2rem;
             margin-right: 0.4rem;
+
+            @include desktop {
+                width: 1.5rem;
+            }
         }
 
         &__button {
             width: 1rem;
+
+            @include desktop {
+                width: 1.5rem;
+                margin-top: 0.1rem;
+            }
             
         }
 
@@ -29,6 +44,12 @@
             width: 1.75rem;
             height: 1.75rem;
             object-fit: cover;
+
+            @include desktop {
+                width: 2rem;
+                height: 2rem;
+                margin-top: 0.2rem;
+            }
         }
 
         &__details {
@@ -41,6 +62,11 @@
                 width: 11rem;
             }
 
+            @include desktop {
+                width: 16rem;
+                justify-content: space-between;
+            }
+
 
             &__name {
                 flex-wrap: nowrap;
@@ -49,17 +75,42 @@
                 margin-right: 0.5rem;
                 padding-top: 0.45rem;
                 padding-left: 0.25rem;
+
+                @include desktop {
+                    font-size: 1.15rem;
+                    margin-right: 1.5rem;
+                    padding-top: 0.6rem;
+                }
             }
 
-            &__team {
+            &__team-info {
+                width: 4rem;
+                display: flex;
+                margin-top: 0.2rem;
+
+                @include desktop {
+                    padding-top: 0.6rem;
+                }
+
+            }
+
+            &__team-info__team {
                 white-space: nowrap;
                 font-size: 0.6rem;
-                padding-top: 0.5rem;
+                
+
+                @include desktop {
+                    font-size: 0.8rem;
+                    margin-left: 1rem;
+                }
             }
 
-            &__position {
-                font-size: 0.6rem;
-                padding-top: 0.5rem;    
+            &__team-info__position {
+                font-size: 0.6rem;  
+                
+                @include desktop {
+                    font-size: 0.8rem;
+                }
             }
         }
     }
@@ -72,6 +123,11 @@
         font-size: 0.6rem;
         width: 2rem;
         justify-content: center;
+
+        @include desktop {
+            font-size: 1rem;
+            padding: 0.7rem 2rem;
+        }
 
     }
 }
