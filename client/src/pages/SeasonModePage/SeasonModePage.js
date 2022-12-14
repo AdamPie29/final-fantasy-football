@@ -44,7 +44,6 @@ function SeasonModePage ({option, selected, onChange}) {
             })    
             .then((response)=> {
                 setCompTeams(response.data);
-                console.log(response.data);
             })
             .catch((error)=> {
                 console.log(error);
@@ -88,6 +87,7 @@ function SeasonModePage ({option, selected, onChange}) {
                 return (
                     <SeasonTeamCard
                     props={team}
+                    key={team.PlayerID}
                     />
                 )
                 })}               
