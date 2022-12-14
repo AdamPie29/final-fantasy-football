@@ -1,3 +1,4 @@
+import "./SeasonRecord.scss";
 
 function SeasonRecord ({record}) {
 

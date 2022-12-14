@@ -76,9 +76,12 @@ function SeasonModePage ({option, selected, onChange}) {
     // Actual Page Contents
     return (
         <div className="season">
-           <img src={playGame} alt="play football" />
                 <div className="season__title">
-                    <h1>SEASON MODE</h1>
+                    <h3>SEASON MODE</h3>
+                </div>
+                <div className="season__desc">
+                    <p className="season__desc__text">Test your teams in a full season simulation!</p>
+                    <p className="season__desc__text">Select a team and discover how great a Coach you truly are.</p>
                 </div>
             <div className="season__choose-team">
                 {myTeams.map((team)=> {
@@ -89,6 +92,7 @@ function SeasonModePage ({option, selected, onChange}) {
                 )
                 })}               
             </div>
+            <img src={playGame} alt="play football" />
         </div>
     )
 }
