@@ -1,0 +1,27 @@
+@use "../../styles/partials/mixins" as *;
+
+.sim-container {
+    position: absolute;
+    @include desktop {
+        top: 35%;
+        left: 8%;
+        width: 70rem;
+        background-color: bisque;
+        height: 35rem;
+        background: rgba( 14, 11, 11, 0.6 );
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur( 10.5px );
+            -webkit-backdrop-filter: blur( 10.5px );
+            border-radius: 10px;
+    }
+
+    &__modal {
+        position: relative;
+
+        @include desktop {
+            width: 60rem;
+            left: 7%;
+            top: 11%;
+        }
+    }
+}

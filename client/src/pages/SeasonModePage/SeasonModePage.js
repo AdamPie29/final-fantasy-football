@@ -2,7 +2,6 @@ import "./SeasonModePage.scss";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import playGame from "../../assets/images/play_game.gif";
 import peytonface from "../../assets/images/peytonface.jpeg";
 import SeasonTeamCard from "../../components/SeasonTeamCard/SeasonTeamCard";
 
@@ -76,6 +75,7 @@ function SeasonModePage ({option, selected, onChange}) {
     // Actual Page Contents
     return (
         <div className="season">
+            <div id="portal" />
                 <div className="season__title">
                     <h3>SEASON MODE</h3>
                 </div>
@@ -92,7 +92,6 @@ function SeasonModePage ({option, selected, onChange}) {
                 )
                 })}               
             </div>
-            <img src={playGame} alt="play football" />
         </div>
     )
 }

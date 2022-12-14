@@ -2,12 +2,23 @@ import "./SeasonTeamCard.scss";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import SeasonRecord from "../SeasonRecord/SeasonRecord";
+import SeasonModeModal from "../SeasonModeModal/SeasonModeModal";
 
 function SeasonTeamCard ({props}) {
 
     const [compTeams, setCompTeams] = useState([])
 
     const [record, setRecord] = useState([])
+
+    const [show, setShow] = useState(false);
+
+    // const handleClick = (status) => {
+    //     setShow(status)
+    // }
+
+    const close = () => {
+        setShow(false)
+    }
 
    
     useEffect(()=> {
@@ -26,7 +37,7 @@ function SeasonTeamCard ({props}) {
     let loseCounter = 0
 
 
-    const getStats = () => {
+    const getStats = (status) => {
 
         const compDataBig = compTeams
 
@@ -164,21 +175,25 @@ function SeasonTeamCard ({props}) {
             console.log(`${winCounter} - ${loseCounter}`)
             console.log(record)
 
+            setShow(status)
+
         }
         
     }
 
     return (
-        <>
-            <button className="sb" onClick={getStats}>{props[0].TeamName}</button>
+        <div className="sb">
+            <SeasonModeModal
+                onClose={close}
+                show={show}
+                />
+            <button className="sb__team" onClick={getStats}>{props[0].TeamName}</button>
             <div>
-              
-                        <SeasonRecord
-                        record={record}
-                        />
-           
+                <SeasonRecord
+                record={record}
+                />
             </div>
-        </>
+        </div>
         
     )
 }

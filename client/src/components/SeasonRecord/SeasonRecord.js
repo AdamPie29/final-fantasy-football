@@ -3,7 +3,13 @@ import "./SeasonRecord.scss";
 function SeasonRecord ({record}) {
 
     return (
-        <div>{record}</div>
+        <>
+        <div className="record">
+            <div className="record__stat">{record}</div>
+        </div>
+            
+        </>
+        
     )
 }
 

@@ -1,0 +1,23 @@
+@use "../../styles/partials/mixins" as *;
+
+.record {
+
+   
+
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__stat {
+        // background-color: rgb(141, 112, 102);
+
+        @include desktop {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        }
+    }
+    
+}
