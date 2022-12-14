@@ -58,8 +58,23 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
 
     return (
         <div className="playertable">
+              <div className="playertable__table__heading--desktop">
+                <PlayerTableHeading
+                  setNameOrdered={setNameOrdered}
+                  setFanpointsOrdered={setFanpointsOrdered}
+                  setPassyardsOrdered={setPassyardsOrdered}
+                  setPasstdsOrdered={setPasstdsOrdered}
+                  setIntOrdered={setIntOrdered}
+                  setRushyardsOrdered={setRushyardsOrdered}
+                  setRushtdsOrdered={setRushtdsOrdered}
+                  setReceiveyardsOrdered={setReceiveyardsOrdered}
+                  setReceivetdsOrdered={setReceivetdsOrdered}
+                  setFumblesOrdered={setFumblesOrdered}
+                  />
+              </div>
             <div className="playertable__table">
-                <PlayerTableHeading 
+              <div className="playertable__table__heading--mobile">
+                <PlayerTableHeading
                 setNameOrdered={setNameOrdered}
                 setFanpointsOrdered={setFanpointsOrdered}
                 setPassyardsOrdered={setPassyardsOrdered}
@@ -71,6 +86,7 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
                 setReceivetdsOrdered={setReceivetdsOrdered}
                 setFumblesOrdered={setFumblesOrdered}
                 />
+              </div>
                {playerData?.map((player)=> {
                      const {FantasyPointsFanDuel, FirstName, Fumbles, LastName, PassingInterceptions, PassingTouchdowns, PassingYards, PhotoUrl, PlayerID, Position, ReceivingTouchdowns, ReceivingYards, RushingTouchdowns, RushingYards, Team} = player
                      return (

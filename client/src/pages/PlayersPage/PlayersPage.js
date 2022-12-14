@@ -31,7 +31,9 @@ function PlayersPage () {
     return (
 
         <div className="players">
-            <h1 className="players__title">PLAYERS</h1>
+            <div className="players__desktop">
+                <h1 className="players__desktop__title">PLAYERS</h1>
+            </div>
             <PlayerTable 
             playerData={playerData}
             setPlayerData={setPlayerData}

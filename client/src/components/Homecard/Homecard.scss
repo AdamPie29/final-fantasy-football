@@ -7,9 +7,15 @@
     align-items: center;
 
     @include tablet {
+        margin-top: 3rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include desktop {
         flex-direction: row;
-        flex-wrap: wrap;
-        
+        justify-content: center;
+        margin: 3rem 0rem;
     }
 
     &-card {
@@ -18,9 +24,24 @@
         margin: 1rem;
         position: relative;
 
+        @include tablet {
+            width: 25rem;
+            height: 14rem;
+        }
+
+        @include desktop {
+            width: 24rem;
+            height: 36rem;
+            margin: 1.5rem;     
+        }
+
         &-con {
             position:relative;
-            
+
+            @include desktop {
+                width: 24rem;
+                height: 36rem;
+            }
         }
 
         &__overlay {
@@ -31,10 +52,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.78);
             z-index: 2; 
             border-radius: 10px;
             cursor: pointer;
+
+            @include tablet {
+                width: 25rem;
+                height: 14rem;
+            }
+
+            @include desktop {
+                width: 24rem;
+                height: 36rem;
+            }
         }
 
         &__title {
@@ -47,6 +78,24 @@
                 font-weight: 600;
                 z-index: 3;
                 font-size: 2.5rem;
+
+                @include tablet {
+                    top: 36%;
+                    right: 30%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 2.5rem;
+                }
+
+                @include desktop {
+                    top: 42%;
+                    right: 15%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 4rem;
+                }
             }
 
             &-teams {
@@ -57,6 +106,24 @@
                 font-weight: 600;
                 z-index: 3;
                 font-size: 2.5rem;
+
+                @include tablet {
+                    top: 36%;
+                    right: 22%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 2.5rem;
+                }
+
+                @include desktop {
+                    top: 42%;
+                    right: 7%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 4rem;
+                }
             }
 
             &-season {
@@ -67,40 +134,86 @@
                 font-weight: 600;
                 z-index: 3;
                 font-size: 2.5rem;
+
+                @include tablet {
+                    top: 36%;
+                    right: 31%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 2.5rem;
+                }
+
+                @include desktop {
+                    top: 42%;
+                    right: 15%;
+                    color: $primary-white;
+                    font-weight: 600;
+                    z-index: 3;
+                    font-size: 4rem;
+                }
             }
-            // position: absolute;
-            // top: 38%;
-            // right: 26%;
-            // color: $primary-white;
-            // font-weight: 600;
-            // z-index: 3;
-            // font-size: 2.5rem;
         }
 
         &__img {
             width: 18rem;
             height: 10rem;
+
+            @include tablet {
+                width: 25rem;
+                height: 14rem;
+            }
+
+            @include desktop {
+                width: 24rem;
+                height: 36rem;
+            }
             
 
             &--players {
                 object-fit: cover;
-                object-position: 0% 18%;
+                object-position: 44% 18%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
             }
 
             &--teams {
                 object-fit: cover;
                 object-position: 0% 88%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
+
+                @include desktop {
+                    object-fit: cover;
+                    object-position: 64% 88%;
+                    border-radius: 10px;
+                }
             }
 
             &--season {
                 object-fit: cover;
                 object-position: 100% 0%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
+
+                @include desktop {
+                    object-position: 100% 36%;
+                }
+            }
+
+            &--season--mobile {
+                @include desktop {
+                    display: none;
+                }
+            }
+
+            &--season--desktop {
+                display: none;
+
+                @include desktop {
+                    display: block;
+                }
             }
         }
-
     }
-
 }
