@@ -52,7 +52,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.78);
             z-index: 2; 
             border-radius: 10px;
             cursor: pointer;
@@ -172,19 +172,21 @@
 
             &--players {
                 object-fit: cover;
-                object-position: 0% 18%;
+                object-position: 44% 18%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
             }
 
             &--teams {
                 object-fit: cover;
                 object-position: 0% 88%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
 
                 @include desktop {
                     object-fit: cover;
-                    object-position: 66% 88%;
-                    border-radius: 10px;   
+                    object-position: 64% 88%;
+                    border-radius: 10px;
                 }
             }
 
@@ -192,6 +194,7 @@
                 object-fit: cover;
                 object-position: 100% 0%;
                 border-radius: 10px;
+                border: 1px solid #646262; 
 
                 @include desktop {
                     object-position: 100% 36%;
