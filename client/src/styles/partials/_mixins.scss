@@ -13,31 +13,3 @@
     @content;
   }
 }
-
-// edge padding
-@mixin edge-padding($breakpoint) {
-  @if $breakpoint ==mobile {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  @else if $breakpoint ==tablet {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  @else if $breakpoint ==desktop {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
-@mixin boxshadow {
-  box-shadow:
-  3.4px 3.4px 2.3px rgba(0, 0, 0, -0.066),
-  8.7px 8.7px 5.9px rgba(0, 0, 0, -0.014),
-  17.7px 17.7px 12.1px #0000000b,
-  36.5px 36.5px 24.8px #0000001a,
-  100px 100px 68px #00000029
-;
-}

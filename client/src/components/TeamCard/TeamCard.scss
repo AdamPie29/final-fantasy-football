@@ -11,9 +11,18 @@
     flex-direction: column;
     width: 16rem;
 
+    @include desktop {
+        width: 22rem;
+        height: 33.5rem;
+    }
+
     &__team-name {
         text-align: center;
         padding-bottom: 0.5rem;
         font-weight: 600;
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 }

@@ -9,6 +9,10 @@
     background-color: #282828;  
     padding: 0.1rem 0.75rem;
 
+    @include desktop {
+        padding: 0.5rem 1rem;
+    }
+
 
     &__position {
         font-size: 0.515rem;
@@ -19,6 +23,12 @@
         width: 2rem;
         text-align: center;
         background-color: #4b4b4b;
+
+        @include desktop {
+            width: 3rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.5rem;
+        }
     }
 
     &__img {
@@ -28,6 +38,10 @@
         object-fit: cover;
         margin-bottom: 0.5rem;
 
+        @include desktop {
+            width: 2.25rem;
+        }
+
     }
 
     &__player-name {
@@ -35,10 +49,20 @@
         font-size: 0.8rem;
         margin-right: 0.5rem;
         width: 5.5rem;
+
+        @include desktop {
+            font-size: 1.1rem;
+            width: 9.5rem;
+        }
     }
 
     &__player-team {
         font-size: 0.5rem;
         margin-top: 0.15rem;
+
+        @include desktop {
+            font-size: 0.75rem;
+        }
+
     }
 }

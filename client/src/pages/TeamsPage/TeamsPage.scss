@@ -81,6 +81,11 @@
         height: 50vw;
         object-fit: cover;
         object-position: 10% 10%;
+
+        @include desktop {
+            width: 30vw;
+            height: 30vw;
+        }
     }
 
     &__not-logged-button {
