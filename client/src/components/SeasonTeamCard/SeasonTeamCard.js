@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import SeasonRecord from "../SeasonRecord/SeasonRecord";
 import SeasonModeModal from "../SeasonModeModal/SeasonModeModal";
 
+
 function SeasonTeamCard ({props}) {
 
     const [compTeams, setCompTeams] = useState([])
