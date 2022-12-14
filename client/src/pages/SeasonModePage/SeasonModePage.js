@@ -77,7 +77,7 @@ function SeasonModePage ({option, selected, onChange}) {
         <div className="season">
             <div id="portal" />
                 <div className="season__title">
-                    <h3>SEASON MODE</h3>
+                    <h1 className="season__title__text">SEASON MODE</h1>
                 </div>
                 <div className="season__desc">
                     <p className="season__desc__text">Test your teams in a full season simulation!</p>

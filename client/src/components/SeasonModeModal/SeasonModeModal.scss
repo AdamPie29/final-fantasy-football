@@ -2,21 +2,39 @@
 
 .sim-container {
     position: absolute;
+    width: 18rem;
+    height: 40rem;
+    background: rgba( 14, 11, 11, 0.6 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 10.5px );
+    -webkit-backdrop-filter: blur( 10.5px );
+    border-radius: 10px;
+
+    @include tablet {
+        top: 35%;
+        left: 6%;
+        width: 43rem;
+        height: 22rem;
+    }
+
     @include desktop {
         top: 35%;
         left: 8%;
         width: 70rem;
-        background-color: bisque;
         height: 35rem;
-        background: rgba( 14, 11, 11, 0.6 );
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur( 10.5px );
-            -webkit-backdrop-filter: blur( 10.5px );
-            border-radius: 10px;
     }
 
     &__modal {
         position: relative;
+        width: 17rem;
+        top: 25%;
+        left: 3%;
+
+        @include tablet {
+            top: 8%;
+            width: 40rem;
+            left: 3%;
+        }
 
         @include desktop {
             width: 60rem;

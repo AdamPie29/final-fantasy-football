@@ -1,8 +1,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .record {
-
-   
+margin-bottom: 0.5rem;
+margin-top: 1rem;
+   font-weight: 600;
 
     @include desktop {
         display: flex;

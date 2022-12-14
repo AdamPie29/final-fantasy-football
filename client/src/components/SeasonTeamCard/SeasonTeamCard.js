@@ -12,10 +12,6 @@ function SeasonTeamCard ({props}) {
 
     const [show, setShow] = useState(false);
 
-    // const handleClick = (status) => {
-    //     setShow(status)
-    // }
-
     const close = () => {
         setShow(false)
     }
