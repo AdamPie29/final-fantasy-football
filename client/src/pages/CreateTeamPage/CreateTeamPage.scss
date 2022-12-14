@@ -22,7 +22,7 @@
         padding: 1rem;
 
         @include desktop {
-            width: 30rem;
+            width: 18rem;
             padding-top: 0rem;
         }
 
@@ -55,7 +55,7 @@
                 }
 
                 @include desktop {
-                    width: 70%;
+                    width: 94%;
                 }
             }
 
@@ -72,7 +72,7 @@
                 }
 
                 @include desktop {
-                    width: 40%;
+                    width: 60%;
                 }
 
                 &--icon {

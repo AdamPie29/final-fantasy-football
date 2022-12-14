@@ -12,6 +12,7 @@
     @include desktop {
         margin: 1rem 0rem;
         background-color: rgb(74, 74, 67);
+        border-radius: 5px;
     }
    
     &__player {
@@ -49,6 +50,7 @@
                 width: 2rem;
                 height: 2rem;
                 margin-top: 0.2rem;
+                margin-left: 0.25rem;
             }
         }
 
