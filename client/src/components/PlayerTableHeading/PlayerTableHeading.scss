@@ -1,0 +1,67 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    height: 2rem;
+    
+    @include desktop {
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: row;
+        font-size: 0.5rem;
+        padding-top: 0.75rem;
+        width: 2rem;
+        padding-left: 1.95rem;
+        padding-right: 1rem;
+        font-weight: 600;
+        align-items: center;
+
+        @include desktop {
+            width: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 1.9rem;
+            padding: 0;
+            
+        }
+    }
+
+    &__title-name {
+        min-width: 10rem;
+        justify-content: center;
+        flex: 1;
+        max-width: 12rem;
+
+        @include tablet {
+            width: 9rem;
+            min-width: 10rem;
+            flex: 1;
+            max-width: 14rem;
+            font-size: 0.715rem;
+        }
+
+        @include desktop {
+            font-size: 1rem;
+            font-weight: 500;
+            max-width: 25rem;
+            width: 19.1rem;
+        }
+    }
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+

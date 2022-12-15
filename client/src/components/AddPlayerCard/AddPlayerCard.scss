@@ -1,0 +1,90 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.add-player-row {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0rem;
+    &:hover {
+        background-color: #383636;
+    }
+
+    @include desktop {
+        margin: 0.5rem 0rem;
+        background-color: #383636;
+        border-radius: 5px;
+    }
+   
+    &__player {
+        display: flex;
+        flex-direction: row;
+        min-width: 10rem;
+        padding: 0rem 1rem;
+
+        &__img {
+            width: 1.75rem;
+            height: 1.75rem;
+            object-fit: cover;
+
+            @include desktop {
+                width: 2rem;
+                height: 2rem;
+                margin-right: 0.5rem;
+            }
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 6rem;
+            
+            @include tablet {
+                width: 6rem;
+            }
+
+            @include desktop {
+                width: 11rem;
+            }
+
+
+            &__name {
+                flex-wrap: nowrap;
+                font-size: 0.7rem;
+                white-space: nowrap;
+                margin-right: 0.5rem;
+                padding-top: 0.45rem;
+                padding-left: 0.25rem;
+
+                @include desktop {
+                    font-size: 1rem;
+                    width: 7rem;
+                    margin-right: 2.5rem;
+                    padding-top: 0.4rem;
+                }
+            }
+
+            &__team {
+                white-space: nowrap;
+                font-size: 0.6rem;
+                
+
+                @include desktop {
+                    font-size: 0.8rem;
+                    margin-left: 1rem;
+                }
+            }
+
+            &__position {
+                font-size: 0.6rem;  
+                padding-top: 0.5rem;
+                
+                @include desktop {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    padding-top: 0.35rem;
+                }
+            }
+        }
+    }
+}

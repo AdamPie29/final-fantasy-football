@@ -1,0 +1,104 @@
+exports.up = function(knex) {
+    return knex.schema.createTable('players_statistics', (table) => {
+        table.integer('PlayerID').notNullable();
+        table.integer('SeasonType');
+        table.integer('Season');
+        table.string('Team');
+        table.integer('Number');
+        table.string('Name');
+        table.string('Position');
+        table.string('PositionCategory');
+        table.integer('Played');
+        table.integer('Started');
+        table.integer('PassingAttempts');
+        table.integer('PassingCompletions');
+        table.integer('PassingYards');
+        table.integer('PassingCompletionPercentage');
+        table.integer('PassingYardsPerAttempt');
+        table.integer('PassingYardsPerCompletion');
+        table.integer('PassingTouchdowns');
+        table.integer('PassingInterceptions');
+        table.integer('PassingRating');
+        table.integer('PassingLong');
+        table.integer('PassingSacks');
+        table.integer('PassingSackYards');
+        table.integer('RushingAttempts');
+        table.integer('RushingYards');
+        table.integer('RushingYardsPerAttempt');
+        table.integer('RushingTouchdowns');
+        table.integer('RushingLong');
+        table.integer('ReceivingTargets');
+        table.integer('Receptions');
+        table.integer('ReceivingYards');
+        table.integer('ReceivingYardsPerReception');
+        table.integer('ReceivingTouchdowns');
+        table.integer('ReceivingLong');
+        table.integer('Fumbles');
+        table.integer('FumblesLost');
+        table.integer('PuntReturns');
+        table.integer('PuntReturnYards');
+        table.integer('PuntReturnTouchdowns');
+        table.integer('KickReturns');
+        table.integer('KickReturnYards');
+        table.integer('KickReturnTouchdowns');
+        table.integer('SoloTackles');
+        table.integer('AssistedTackles');
+        table.integer('TacklesForLoss');
+        table.integer('Sacks');
+        table.integer('SackYards');
+        table.integer('QuarterbackHits');
+        table.integer('PassesDefended');
+        table.integer('FumblesForced');
+        table.integer('FumblesRecovered');
+        table.integer('FumbleReturnTouchdowns');
+        table.integer('Interceptions');
+        table.integer('InterceptionReturnTouchdowns');
+        table.integer('FieldGoalsAttempted');
+        table.integer('FieldGoalsMade');
+        table.integer('ExtraPointsMade');
+        table.integer('TwoPointConversionPasses');
+        table.integer('TwoPointConversionRuns');
+        table.integer('TwoPointConversionReceptions');
+        table.integer('FantasyPoints');
+        table.string('FantasyPosition');
+        table.integer('PlayerSeasonID');
+        table.integer('ExtraPointsAttempted');
+        table.integer('AuctionValue');
+        table.integer('AuctionValuePPR');
+        table.integer('FantasyPointsFanDuel');
+        table.integer('FieldGoalsMade0to19');
+        table.integer('FieldGoalsMade20to29');
+        table.integer('FieldGoalsMade30to39');
+        table.integer('FieldGoalsMade40to49');
+        table.integer('FieldGoalsMade50Plus');
+        table.integer('FantasyPointsDraftKings');
+        table.integer('AverageDraftPosition');
+        table.integer('AverageDraftPositionPPR');
+        table.integer('TeamID');
+    })
+    .createTable('players_images', (table) => {
+        table.integer('PlayerID').primary().notNullable();
+        table.string('Team');
+        table.integer('Number');
+        table.string('FirstName');
+        table.string('LastName');
+        table.string('Position');
+        table.string('Status');
+        table.string('Height');
+        table.integer('Weight');
+        table.integer('BirthDate');
+        table.string('College');
+        table.integer('Experience');
+        table.string('FantasyPosition');
+        table.string('PositionCategory');
+        table.string('PhotoUrl');
+    })
+};
+
+exports.down = function(knex) {
+    return knex.schema.dropTable('players_statistics')
+};
+
+exports.down = function(knex) {
+    return knex.schema.dropTable('players_images')
+};

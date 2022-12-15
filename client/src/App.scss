@@ -1,0 +1,67 @@
+@use "./styles/partials/mixins" as *;
+@use './styles/partials/typography' as *;
+@use './styles/partials/variables' as *;
+
+html {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto';
+    color: $primary-white;
+    background-color: $background-primary;
+}
+
+button, input, select, textarea {
+    font: inherit;
+    text-transform: inherit;
+}
+
+.app {
+    background-color: rgb(36, 36, 36);
+}
+
+button {
+    cursor: pointer;
+}
+
+.QB {
+    color: #e75454
+}
+
+.WR {
+    color: rgb(93, 171, 248);
+}
+
+.RB {
+    color: #97e16a
+}
+
+.TE {
+    color: #d97f35
+}
+
+.page-tablet {
+    
+    @include tablet {
+        display: flex;
+        border-bottom: 3px solid black;
+    }
+
+    @include desktop {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}

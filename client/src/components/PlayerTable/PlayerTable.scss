@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.playertable {
+    padding: 1rem;
+
+    @include tablet {
+        padding: 0rem 4rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
+
+    @include desktop {
+        padding: 0rem 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    &__table {
+        border-radius: 20px;
+        height: 30rem;
+        padding: 0 0.625rem 0.625rem 0.625rem;
+        overflow: scroll;
+        max-width: 42rem;
+
+        @include tablet {
+            padding: 0rem 1rem;
+            width: 42rem;
+            max-width: 100rem;
+        }
+
+        @include desktop {
+            height: 40rem;
+            width: 60rem;
+            max-width: 100rem;
+
+        }
+
+        &__heading--desktop {
+            display: none;
+
+            @include desktop {
+                display: block;
+            }
+        }
+
+        &__heading--mobile {
+            @include desktop {
+                display: none;
+            }
+        }
+    }
+}
