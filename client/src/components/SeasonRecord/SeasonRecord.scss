@@ -1,9 +1,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .record {
-margin-bottom: 0.5rem;
-margin-top: 1rem;
-   font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
 
     @include desktop {
         display: flex;
@@ -12,8 +12,6 @@ margin-top: 1rem;
     }
 
     &__stat {
-        // background-color: rgb(141, 112, 102);
-
         @include desktop {
         font-size: 2rem;
         margin-bottom: 1rem;

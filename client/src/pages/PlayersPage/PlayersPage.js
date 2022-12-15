@@ -2,7 +2,6 @@ import "./PlayersPage.scss";
 import { useState, useEffect} from 'react';
 import axios from 'axios';
 import PlayerTable from "../../components/PlayerTable/PlayerTable";
-import PlayerTableHeading from "../../components/PlayerTableHeading/PlayerTableHeading";
 
 function PlayersPage () {
 

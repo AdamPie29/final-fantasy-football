@@ -3,7 +3,7 @@ import "./TeamCardPlayerCard.scss";
 function TeamCardPlayerCard ({props}) {
 
     return (
-        <div classsName="player-card">
+        <div classsname="player-card">
             <div className="player-card__player-info">
                 <p className={`player-card__player-info__position ${props.Position}`}>{props.Position}</p>
                 <img src={props.PhotoUrl} alt="bust of player" className="player-card__player-info__img" />

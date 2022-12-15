@@ -71,7 +71,7 @@ function SeasonModePage ({option, selected, onChange}) {
         );
     }
 
-    // Actual Page Contents
+
     return (
         <div className="season">
             <div id="portal" />
@@ -83,11 +83,11 @@ function SeasonModePage ({option, selected, onChange}) {
                     <p className="season__desc__text">Select a team and discover how great a Coach you truly are.</p>
                 </div>
             <div className="season__choose-team">
-                {myTeams.map((team)=> {
+                {myTeams.map((team, index)=> {
                 return (
                     <SeasonTeamCard
                     props={team}
-                    key={team.PlayerID}
+                    key={index}
                     />
                 )
                 })}               

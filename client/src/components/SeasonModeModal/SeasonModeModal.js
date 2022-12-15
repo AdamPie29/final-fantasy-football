@@ -1,7 +1,6 @@
 import "./SeasonModeModal.scss";
 import ReactDOM from "react-dom";
 import playGame from "../../assets/images/playGame.gif";
-import { useState, useEffect } from 'react';
 
 function SeasonModeModal ({onClose, show}) {
 
@@ -12,8 +11,6 @@ function SeasonModeModal ({onClose, show}) {
     const handleSubmit = () => {
         onClose();
     }
-
-    
 
     return ReactDOM.createPortal(
         <div className="sim-container">
