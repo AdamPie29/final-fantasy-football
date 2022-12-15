@@ -10,9 +10,6 @@ const {v4:uuidv4} = require('uuid');
 
 function CreateTeamPage () {
 
-    // piece of state for all players
-    const [allPlayers, setAllPlayers] = useState([])
-
     // piece of state for all players to show
     const [playerData, setPlayerData] = useState([])
 
@@ -92,10 +89,11 @@ function CreateTeamPage () {
 
                     <div className="createteam__team">
                         <p className="createteam__team__title">YOUR ROSTER:</p>
-                        {team.map((player)=> {
+                        {team.map((player, index)=> {
                             return (
                                 <AddPlayerCard
                                 props={player}
+                                key={index}
                                 />
                             )
                         })}
@@ -140,7 +138,6 @@ function CreateTeamPage () {
     async function populateData() {
         try {
             const response = await axios.get('http://localhost:8080/player/')
-            setAllPlayers(response.data)
             setPlayerData(response.data)
         } catch (error) {
             console.log(error)

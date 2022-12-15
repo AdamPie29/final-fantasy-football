@@ -6,9 +6,6 @@ import axios from 'axios';
 
 function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, fanpointsOrdered, setFanpointsOrdered, passyardsOrdered, setPassyardsOrdered, passtdsOrdered, setPasstdsOrdered, intOrdered, setIntOrdered, rushyardsOrdered, setRushyardsOrdered, rushtdsOrdered, setRushtdsOrdered, receiveyardsOrdered, setReceiveyardsOrdered, receivetdsOrdered, setReceivetdsOrdered, fumblesOrdered, setFumblesOrdered, addPlayer }) {
     
-    const API_URL = process.env.REACT_APP_API_URL
-    console.log(API_URL)
-
     useEffect(() => {
         sortByName()
       // eslint-disable-next-line react-hooks/exhaustive-deps

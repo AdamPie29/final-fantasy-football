@@ -4,12 +4,10 @@ function SeasonRecord ({record}) {
 
     return (
         <>
-        <div className="record">
-            <div className="record__stat">{record}</div>
-        </div>
-            
+            <div className="record">
+                <div className="record__stat">{record}</div>
+            </div> 
         </>
-        
     )
 }
 

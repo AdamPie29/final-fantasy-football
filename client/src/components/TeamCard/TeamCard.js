@@ -6,10 +6,11 @@ function TeamCard ({props}) {
     return (
         <div className="team-card">
             <p className="team-card__team-name">{props[0].TeamName}</p>
-            {props.map((players)=> {
+            {props.map((players, index)=> {
                 return (
                     <TeamCardPlayerCard
                     props={players}
+                    key={index}
                     />
                 )
             })}

@@ -40,7 +40,6 @@ function TeamsPage() {
             })
             .then((response)=> {
                 setMyTeams(response.data);
-                console.log(response.data);
             })
             .catch((error)=> {
                 console.log(error);
@@ -88,10 +87,11 @@ function TeamsPage() {
                     <button onClick={() => navigate('/createteam')} className="teams__title-con__new-team-button"><img src={addTeam} alt="add team icon" className="teams__title-con__img" />CREATE NEW TEAM</button>
                 </div>
                 <div className="teams__title-con__desktop">
-                    {myTeams.map((team)=> {
+                    {myTeams.map((team, index)=> {
                     return (
                         <TeamCard
                         props={team}
+                        key={index}
                         />
                     )
                     })}
