@@ -7,6 +7,8 @@ import SeasonTeamCard from "../../components/SeasonTeamCard/SeasonTeamCard";
 
 function SeasonModePage ({option, selected, onChange}) {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // pieces of state to handle user authentication
     const [user, setUser] = useState(null)
     const [failedAuth, setFailedAuth] = useState(false);
@@ -26,7 +28,7 @@ function SeasonModePage ({option, selected, onChange}) {
         }
 
         // get the data from the server
-        axios.get('http://localhost:8080/user/currentUser', {
+        axios.get(`${API_URL}/user/currentUser`, {
             headers: {
                 Authorization: `Bearer: ${token}`
             }
@@ -35,12 +37,12 @@ function SeasonModePage ({option, selected, onChange}) {
             .then((response)=> {
                 setUser(response.data);
                 sessionStorage.setItem("user_id", response.data.id)
-                return axios.get(`http://localhost:8080/teams/${response.data.id}`)
+                return axios.get(`${API_URL}/teams/${response.data.id}`)
             })
             .then((response)=> {
                 setMyTeams(response.data);
                 // to populate Computer's teams to play season
-                return axios.get('http://localhost:8080/teams/enemyteams')
+                return axios.get(`${API_URL}/teams/enemyteams`)
             })    
             .then((response)=> {
                 setCompTeams(response.data);
@@ -49,7 +51,7 @@ function SeasonModePage ({option, selected, onChange}) {
                 console.log(error);
                 setFailedAuth(true);
             });
-    }, []);
+    }, []); 
 
     if (failedAuth) {
         return (

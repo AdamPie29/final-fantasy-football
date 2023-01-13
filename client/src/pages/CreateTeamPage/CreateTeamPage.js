@@ -10,6 +10,8 @@ const {v4:uuidv4} = require('uuid');
 
 function CreateTeamPage () {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // piece of state for all players to show
     const [playerData, setPlayerData] = useState([])
 
@@ -60,7 +62,7 @@ function CreateTeamPage () {
             newTeam.team[i].user_id = sessionStorage.getItem("user_id")  
         }
         // posts built team to database
-        axios.post('http://localhost:8080/teams/newteam', newTeam.team)
+        axios.post(`${API_URL}/teams/newteam`, newTeam.team)
         event.target.reset()
     }
 
@@ -137,7 +139,7 @@ function CreateTeamPage () {
     // populates players database
     async function populateData() {
         try {
-            const response = await axios.get('http://localhost:8080/player/')
+            const response = await axios.get(`${API_URL}/player/`)
             setPlayerData(response.data)
         } catch (error) {
             console.log(error)

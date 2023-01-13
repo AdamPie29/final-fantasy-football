@@ -6,6 +6,9 @@ import axios from 'axios';
 
 function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, fanpointsOrdered, setFanpointsOrdered, passyardsOrdered, setPassyardsOrdered, passtdsOrdered, setPasstdsOrdered, intOrdered, setIntOrdered, rushyardsOrdered, setRushyardsOrdered, rushtdsOrdered, setRushtdsOrdered, receiveyardsOrdered, setReceiveyardsOrdered, receivetdsOrdered, setReceivetdsOrdered, fumblesOrdered, setFumblesOrdered, addPlayer }) {
     
+  const API_URL = process.env.REACT_APP_API_URL;
+
+
     useEffect(() => {
         sortByName()
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -119,9 +122,9 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByName() {
         let response;
         try {
-          if (nameOrdered) response = await axios.get('http://localhost:8080/player/sortByPlayerNameASC')
-          else response = await axios.get('http://localhost:8080/player/sortByPlayerNameDESC')
-          setPlayerData(response.data)
+          if (nameOrdered) response = await axios.get(`${API_URL}/player/sortByPlayerNameASC`)
+          else response = await axios.get(`${API_URL}/player/sortByPlayerNameDESC`)
+          setPlayerData(response.data)  
         } catch (error) {
           console.log(error)
         }
@@ -130,8 +133,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByFanPoints() {
         let response;
         try {
-          if (fanpointsOrdered) response = await axios.get('http://localhost:8080/player/sortByFanPointsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByFanPointsDESC')
+          if (fanpointsOrdered) response = await axios.get(`${API_URL}/player/sortByFanPointsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByFanPointsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -141,8 +144,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByPassYards() {
         let response;
         try {
-          if (passyardsOrdered) response = await axios.get('http://localhost:8080/player/sortByPassingYardsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByPassingYardsDESC')
+          if (passyardsOrdered) response = await axios.get(`${API_URL}/player/sortByPassingYardsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByPassingYardsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -152,8 +155,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByPassTds() {
         let response;
         try {
-          if (passtdsOrdered) response = await axios.get('http://localhost:8080/player/sortByPassingTDsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByPassingTDsDESC')
+          if (passtdsOrdered) response = await axios.get(`${API_URL}/player/sortByPassingTDsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByPassingTDsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -163,8 +166,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByINTs() {
         let response;
         try {
-          if (intOrdered) response = await axios.get('http://localhost:8080/player/sortByINTsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByINTsDESC')
+          if (intOrdered) response = await axios.get(`${API_URL}/player/sortByINTsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByINTsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -174,8 +177,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByRushYards() {
         let response;
         try {
-          if (rushyardsOrdered) response = await axios.get('http://localhost:8080/player/sortByRushingYardsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByRushingYardsDESC')
+          if (rushyardsOrdered) response = await axios.get(`${API_URL}/player/sortByRushingYardsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByRushingYardsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -185,8 +188,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByRushTds() {
         let response;
         try {
-          if (rushtdsOrdered) response = await axios.get('http://localhost:8080/player/sortByRushingTDsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByRushingTDsDESC')
+          if (rushtdsOrdered) response = await axios.get(`${API_URL}/player/sortByRushingTDsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByRushingTDsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -196,8 +199,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByRecYards() {
         let response;
         try {
-          if (receiveyardsOrdered) response = await axios.get('http://localhost:8080/player/sortByReceivingYardsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByReceivingYardsDESC')
+          if (receiveyardsOrdered) response = await axios.get(`${API_URL}/player/sortByReceivingYardsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByReceivingYardsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -207,8 +210,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByRecTds() {
         let response;
         try {
-          if (receivetdsOrdered) response = await axios.get('http://localhost:8080/player/sortByReceivingTDsASC')
-          else response = await axios.get('http://localhost:8080/player/sortByReceivingTDsDESC')
+          if (receivetdsOrdered) response = await axios.get(`${API_URL}/player/sortByReceivingTDsASC`)
+          else response = await axios.get(`${API_URL}/player/sortByReceivingTDsDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)
@@ -218,8 +221,8 @@ function PlayerTable ({ playerData, setPlayerData, nameOrdered, setNameOrdered, 
     async function sortByFumbles() {
         let response;
         try {
-          if (fumblesOrdered) response = await axios.get('http://localhost:8080/player/sortByFumblesASC')
-          else response = await axios.get('http://localhost:8080/player/sortByFumblesDESC')
+          if (fumblesOrdered) response = await axios.get(`${API_URL}/player/sortByFumblesASC`)
+          else response = await axios.get(`${API_URL}/player/sortByFumblesDESC`)
           setPlayerData(response.data)
         } catch (error) {
           console.log(error)

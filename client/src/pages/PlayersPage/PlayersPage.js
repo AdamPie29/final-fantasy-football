@@ -5,6 +5,8 @@ import PlayerTable from "../../components/PlayerTable/PlayerTable";
 
 function PlayersPage () {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // piece of state for all players
     const [allPlayers, setAllPlayers] = useState([])
 
@@ -63,7 +65,7 @@ function PlayersPage () {
 
     async function populateData() {
         try {
-            const response = await axios.get('http://localhost:8080/player/')
+            const response = await axios.get(`${API_URL}/player/`)
             setAllPlayers(response.data)
             setPlayerData(response.data)
         } catch (error) {

@@ -7,6 +7,8 @@ import axios from "axios";
 
 function LoginPage() {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     const [error, setError] = useState(false);
     const navigate = useNavigate();
 
@@ -37,7 +39,7 @@ function LoginPage() {
         }
 
         // post to login route
-        axios.post("http://localhost:8080/user/login", user)
+        axios.post(`${API_URL}/user/login`, user)
             .then ((response)=> {
                 sessionStorage.setItem("token", response.data.token);
                 navigate("/")

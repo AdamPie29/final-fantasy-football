@@ -9,6 +9,8 @@ import TeamCard from "../../components/TeamCard/TeamCard";
 
 function TeamsPage() {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     const navigate = useNavigate();
 
     // pieces of state to handle user authentication
@@ -27,7 +29,7 @@ function TeamsPage() {
         }
 
         // get the data from the server
-        axios.get('http://localhost:8080/user/currentUser', {
+        axios.get(`${API_URL}/user/currentUser`, {
             headers: {
                 Authorization: `Bearer: ${token}`
             }
@@ -36,7 +38,7 @@ function TeamsPage() {
             .then((response)=> {
                 setUser(response.data);
                 sessionStorage.setItem("user_id", response.data.id)
-                return axios.get(`http://localhost:8080/teams/${response.data.id}`)
+                return axios.get(`${API_URL}/teams/${response.data.id}`)
             })
             .then((response)=> {
                 setMyTeams(response.data);

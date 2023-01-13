@@ -7,6 +7,8 @@ import axios from "axios";
 
 function SignUpPage () {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // set password rules to minimum of 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit
     const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
     
@@ -40,7 +42,7 @@ function SignUpPage () {
         }
 
         // post new user to users table
-        axios.post("http://localhost:8080/user/signup", newUser)
+        axios.post(`${API_URL}/user/signup`, newUser)
         console.log(newUser);
         actions.resetForm();
     }

@@ -7,6 +7,8 @@ import SeasonModeModal from "../SeasonModeModal/SeasonModeModal";
 
 function SeasonTeamCard ({props}) {
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // piece of state to grab computer's teams
     const [compTeams, setCompTeams] = useState([])
 
@@ -23,7 +25,7 @@ function SeasonTeamCard ({props}) {
 
     // to get the 17 computer teams to simulate season
     useEffect(()=> {
-        axios.get('http://localhost:8080/teams/enemyteams')    
+        axios.get(`${API_URL}/teams/enemyteams`)    
             .then((response)=> {
             setCompTeams(response.data);
         })
